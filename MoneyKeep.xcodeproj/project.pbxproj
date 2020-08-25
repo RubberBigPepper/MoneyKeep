@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50382C2124EE33CA0085272D /* SpendCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50382C2024EE33CA0085272D /* SpendCategory.swift */; };
+		50382C2324EE36600085272D /* SpendItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50382C2224EE36600085272D /* SpendItem.swift */; };
+		50382C2524EE38E10085272D /* SpendCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50382C2424EE38E10085272D /* SpendCollection.swift */; };
 		50418D7724EBD0FD003EDD6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50418D7624EBD0FD003EDD6B /* AppDelegate.swift */; };
 		50418D7924EBD0FD003EDD6B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50418D7824EBD0FD003EDD6B /* SceneDelegate.swift */; };
 		50418D7B24EBD0FE003EDD6B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50418D7A24EBD0FE003EDD6B /* ViewController.swift */; };
@@ -14,9 +17,14 @@
 		50418D8124EBD0FE003EDD6B /* MoneyKeep.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 50418D7F24EBD0FE003EDD6B /* MoneyKeep.xcdatamodeld */; };
 		50418D8324EBD0FF003EDD6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50418D8224EBD0FF003EDD6B /* Assets.xcassets */; };
 		50418D8624EBD0FF003EDD6B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50418D8424EBD0FF003EDD6B /* LaunchScreen.storyboard */; };
+		FBCD0EA8B0288554E62CD1D6 /* Pods_MoneyKeep.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BC49BB30AAE39B8DF13D603 /* Pods_MoneyKeep.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0BC49BB30AAE39B8DF13D603 /* Pods_MoneyKeep.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoneyKeep.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		50382C2024EE33CA0085272D /* SpendCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendCategory.swift; sourceTree = "<group>"; };
+		50382C2224EE36600085272D /* SpendItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendItem.swift; sourceTree = "<group>"; };
+		50382C2424EE38E10085272D /* SpendCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendCollection.swift; sourceTree = "<group>"; };
 		50418D7324EBD0FD003EDD6B /* MoneyKeep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyKeep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50418D7624EBD0FD003EDD6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50418D7824EBD0FD003EDD6B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +34,8 @@
 		50418D8224EBD0FF003EDD6B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50418D8524EBD0FF003EDD6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		50418D8724EBD0FF003EDD6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A134715B8F7A2FECF1B7EDC /* Pods-MoneyKeep.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyKeep.release.xcconfig"; path = "Target Support Files/Pods-MoneyKeep/Pods-MoneyKeep.release.xcconfig"; sourceTree = "<group>"; };
+		F954CA37774A6EA437ED5290 /* Pods-MoneyKeep.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyKeep.debug.xcconfig"; path = "Target Support Files/Pods-MoneyKeep/Pods-MoneyKeep.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +43,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBCD0EA8B0288554E62CD1D6 /* Pods_MoneyKeep.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2DC80EC9AFCAFF566FA13088 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0BC49BB30AAE39B8DF13D603 /* Pods_MoneyKeep.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		50418D6A24EBD0FD003EDD6B = {
 			isa = PBXGroup;
 			children = (
 				50418D7524EBD0FD003EDD6B /* MoneyKeep */,
 				50418D7424EBD0FD003EDD6B /* Products */,
+				9C74F11BAB0B1E6171051E83 /* Pods */,
+				2DC80EC9AFCAFF566FA13088 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -66,8 +87,20 @@
 				50418D8424EBD0FF003EDD6B /* LaunchScreen.storyboard */,
 				50418D8724EBD0FF003EDD6B /* Info.plist */,
 				50418D7F24EBD0FE003EDD6B /* MoneyKeep.xcdatamodeld */,
+				50382C2024EE33CA0085272D /* SpendCategory.swift */,
+				50382C2224EE36600085272D /* SpendItem.swift */,
+				50382C2424EE38E10085272D /* SpendCollection.swift */,
 			);
 			path = MoneyKeep;
+			sourceTree = "<group>";
+		};
+		9C74F11BAB0B1E6171051E83 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F954CA37774A6EA437ED5290 /* Pods-MoneyKeep.debug.xcconfig */,
+				9A134715B8F7A2FECF1B7EDC /* Pods-MoneyKeep.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +110,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 50418D8A24EBD0FF003EDD6B /* Build configuration list for PBXNativeTarget "MoneyKeep" */;
 			buildPhases = (
+				D804E95A4EF4146DE67E31DD /* [CP] Check Pods Manifest.lock */,
 				50418D6F24EBD0FD003EDD6B /* Sources */,
 				50418D7024EBD0FD003EDD6B /* Frameworks */,
 				50418D7124EBD0FD003EDD6B /* Resources */,
+				235089EFF503C60EBD1119C4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -136,15 +171,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		235089EFF503C60EBD1119C4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MoneyKeep/Pods-MoneyKeep-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MoneyKeep/Pods-MoneyKeep-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoneyKeep/Pods-MoneyKeep-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D804E95A4EF4146DE67E31DD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MoneyKeep-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		50418D6F24EBD0FD003EDD6B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				50418D7B24EBD0FE003EDD6B /* ViewController.swift in Sources */,
+				50382C2324EE36600085272D /* SpendItem.swift in Sources */,
 				50418D7724EBD0FD003EDD6B /* AppDelegate.swift in Sources */,
 				50418D7924EBD0FD003EDD6B /* SceneDelegate.swift in Sources */,
+				50382C2124EE33CA0085272D /* SpendCategory.swift in Sources */,
 				50418D8124EBD0FE003EDD6B /* MoneyKeep.xcdatamodeld in Sources */,
+				50382C2524EE38E10085272D /* SpendCollection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +366,7 @@
 		};
 		50418D8B24EBD0FF003EDD6B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F954CA37774A6EA437ED5290 /* Pods-MoneyKeep.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -305,6 +386,7 @@
 		};
 		50418D8C24EBD0FF003EDD6B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A134715B8F7A2FECF1B7EDC /* Pods-MoneyKeep.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
