@@ -113,6 +113,17 @@
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dSg-JK-ZFn">
                                             <rect key="frame" x="0.0" y="0.0" width="130" height="127"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xsD-rl-Czb">
+                                                    <rect key="frame" x="8" y="8" width="114" height="111"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="xsD-rl-Czb" secondAttribute="bottom" constant="8" id="5gO-m4-yLl"/>
+                                                <constraint firstItem="xsD-rl-Czb" firstAttribute="top" secondItem="dSg-JK-ZFn" secondAttribute="top" constant="8" id="Umm-0n-GDU"/>
+                                                <constraint firstAttribute="trailing" secondItem="xsD-rl-Czb" secondAttribute="trailing" constant="8" id="uik-v6-Tb9"/>
+                                                <constraint firstItem="xsD-rl-Czb" firstAttribute="leading" secondItem="dSg-JK-ZFn" secondAttribute="leading" constant="8" id="vVr-Tz-wdQ"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="130" height="127"/>
                                     </collectionViewCell>
@@ -124,7 +135,6 @@
                             <constraint firstItem="kdO-z3-3Ty" firstAttribute="trailing" secondItem="5IK-ZI-heH" secondAttribute="trailing" constant="20" id="IWy-zN-Rfe"/>
                             <constraint firstItem="ITX-G4-eTN" firstAttribute="top" secondItem="kdO-z3-3Ty" secondAttribute="top" id="N2X-bS-7nb"/>
                             <constraint firstItem="Eog-co-3ro" firstAttribute="top" secondItem="5IK-ZI-heH" secondAttribute="bottom" constant="18" id="WEd-uH-z1k"/>
-                            <constraint firstItem="Eog-co-3ro" firstAttribute="width" secondItem="VaV-M2-TJU" secondAttribute="width" multiplier="0.903382" id="ben-4y-HhU"/>
                             <constraint firstItem="Eog-co-3ro" firstAttribute="leading" secondItem="kdO-z3-3Ty" secondAttribute="leading" constant="20" id="bme-RB-8sl"/>
                             <constraint firstItem="5IK-ZI-heH" firstAttribute="leading" secondItem="kdO-z3-3Ty" secondAttribute="leading" constant="20" id="h3S-z6-mJY"/>
                             <constraint firstItem="Eog-co-3ro" firstAttribute="width" secondItem="VaV-M2-TJU" secondAttribute="height" multiplier="187:448" id="lMP-dV-gxr"/>
@@ -147,6 +157,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ngm-kY-wmr" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1HP-Mn-VdL">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
