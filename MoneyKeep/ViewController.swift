@@ -34,10 +34,15 @@ class ViewController: UIViewController {
         showAddSpendIncomeDlg(false)
     }
     
-    
     private func showAddSpendIncomeDlg(_ income: Bool){//покажем диалог ввода траты или прихода денег
-        if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "AddSpendIncome") as? AddSpendViewController {
-            self.present(viewController, animated: true, completion: nil)
+        performSegue(withIdentifier:"AddSpendIncome", sender: nil)
+    }
+       
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if let vc=segue.destination as? AddSpendViewController, segue.identifier=="AddSpendIncome"{
+            //vc.listener=self
+            //vc.selectedColorName=labelSelectedColor.text!
+            //vc.selectedColor=labelSelectedColor.textColor
         }
     }
 }
