@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "iconfinder___clothes_tshirt_fashion_outfit_3668861.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

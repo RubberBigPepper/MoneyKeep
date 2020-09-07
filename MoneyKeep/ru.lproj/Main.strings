@@ -1,0 +1,24 @@
+
+/* Class = "UILabel"; text = "Добавьте расход (-) или доход (+)"; ObjectID = "55m-p1-RwR"; */
+"55m-p1-RwR.text" = "Добавьте расход (-) или доход (+)";
+
+/* Class = "UITextField"; placeholder = "Введите сумму"; ObjectID = "5IK-ZI-heH"; */
+"5IK-ZI-heH.placeholder" = "Введите сумму";
+
+/* Class = "UIButton"; normalTitle = "+"; ObjectID = "6ft-ML-R1S"; */
+"6ft-ML-R1S.normalTitle" = "+";
+
+/* Class = "UILabel"; text = "Введите сумму:"; ObjectID = "ITX-G4-eTN"; */
+"ITX-G4-eTN.text" = "Введите сумму:";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Kv1-FF-mC5"; */
+"Kv1-FF-mC5.text" = "Label";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "kvM-NN-wHM"; */
+"kvM-NN-wHM.title" = "Item";
+
+/* Class = "UILabel"; text = "Выберите категорию"; ObjectID = "pfz-uJ-vII"; */
+"pfz-uJ-vII.text" = "Выберите категорию";
+
+/* Class = "UIButton"; normalTitle = "-"; ObjectID = "pgY-w5-LhR"; */
+"pgY-w5-LhR.normalTitle" = "-";

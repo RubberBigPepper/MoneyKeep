@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "iconfinder___salary_wallet_income_earnings_3668841.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

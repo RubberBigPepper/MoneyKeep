@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "iconfinder___car_service_drive_expenses_3668862.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

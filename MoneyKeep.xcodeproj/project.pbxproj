@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5005821D25024F040076927D /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5005821C25024F040076927D /* CategoryCollectionViewCell.swift */; };
+		5005821F25024F990076927D /* AddSpendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5005821E25024F990076927D /* AddSpendViewController.swift */; };
 		50382C2124EE33CA0085272D /* SpendCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50382C2024EE33CA0085272D /* SpendCategory.swift */; };
 		50382C2324EE36600085272D /* SpendItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50382C2224EE36600085272D /* SpendItem.swift */; };
 		50382C2524EE38E10085272D /* SpendCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50382C2424EE38E10085272D /* SpendCollection.swift */; };
@@ -24,6 +26,9 @@
 
 /* Begin PBXFileReference section */
 		0BC49BB30AAE39B8DF13D603 /* Pods_MoneyKeep.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoneyKeep.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5005821C25024F040076927D /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		5005821E25024F990076927D /* AddSpendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpendViewController.swift; sourceTree = "<group>"; };
+		5005822025026EDE0076927D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		50382C2024EE33CA0085272D /* SpendCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendCategory.swift; sourceTree = "<group>"; };
 		50382C2224EE36600085272D /* SpendItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendItem.swift; sourceTree = "<group>"; };
 		50382C2424EE38E10085272D /* SpendCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendCollection.swift; sourceTree = "<group>"; };
@@ -96,6 +101,8 @@
 				50382C2424EE38E10085272D /* SpendCollection.swift */,
 				50A0B89724F91D4800DE5E23 /* CategoryCollection.swift */,
 				50500B1424FD401E00BE9132 /* ImageCollection.swift */,
+				5005821C25024F040076927D /* CategoryCollectionViewCell.swift */,
+				5005821E25024F990076927D /* AddSpendViewController.swift */,
 			);
 			path = MoneyKeep;
 			sourceTree = "<group>";
@@ -153,6 +160,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 50418D6A24EBD0FD003EDD6B;
 			productRefGroup = 50418D7424EBD0FD003EDD6B /* Products */;
@@ -230,6 +238,8 @@
 				50418D7724EBD0FD003EDD6B /* AppDelegate.swift in Sources */,
 				50418D7924EBD0FD003EDD6B /* SceneDelegate.swift in Sources */,
 				50382C2124EE33CA0085272D /* SpendCategory.swift in Sources */,
+				5005821D25024F040076927D /* CategoryCollectionViewCell.swift in Sources */,
+				5005821F25024F990076927D /* AddSpendViewController.swift in Sources */,
 				50A0B89824F91D4800DE5E23 /* CategoryCollection.swift in Sources */,
 				50418D8124EBD0FE003EDD6B /* MoneyKeep.xcdatamodeld in Sources */,
 				50382C2524EE38E10085272D /* SpendCollection.swift in Sources */,
@@ -243,6 +253,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				50418D7D24EBD0FE003EDD6B /* Base */,
+				5005822025026EDE0076927D /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -262,6 +273,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -322,6 +334,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

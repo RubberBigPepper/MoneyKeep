@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "iconfinder___restaurant_food_expense_fork_3668842.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
