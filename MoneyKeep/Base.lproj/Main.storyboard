@@ -59,10 +59,20 @@
                                     <constraint firstAttribute="height" constant="80" id="Wdh-n4-S9w"/>
                                 </constraints>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qls-Al-5N0" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="262.5" width="374" height="371"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Qls-Al-5N0" secondAttribute="height" multiplier="374:371" id="t5d-3Q-VEL"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="TyQ-Ir-ppO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="QO8-Cl-r6W"/>
+                            <constraint firstItem="Qls-Al-5N0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="RFl-0R-wAG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Qls-Al-5N0" secondAttribute="trailing" constant="20" id="SSx-Of-AIR"/>
+                            <constraint firstItem="Qls-Al-5N0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="b2h-xS-0pD"/>
                             <constraint firstAttribute="trailing" secondItem="TyQ-Ir-ppO" secondAttribute="trailing" constant="20" id="cyQ-Ci-C1S"/>
                             <constraint firstItem="TyQ-Ir-ppO" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="jRc-l3-C8Q"/>
                         </constraints>
@@ -70,6 +80,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="kvM-NN-wHM"/>
                     <connections>
+                        <outlet property="chartView" destination="Qls-Al-5N0" id="HAJ-6d-Zpq"/>
                         <outlet property="incomeBtn" destination="6ft-ML-R1S" id="nJO-St-3Qi"/>
                         <outlet property="spendBtn" destination="pgY-w5-LhR" id="TOH-1Y-kCX"/>
                         <segue destination="MG1-Gc-Aj4" kind="show" identifier="AddSpendIncome" id="Sp4-bV-HDH"/>
@@ -102,20 +113,44 @@
                                 <rect key="frame" x="20" y="333" width="374" height="475"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="myF-ke-qyp">
-                                    <size key="itemSize" width="162" height="207"/>
+                                    <size key="itemSize" width="155" height="177"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="znZ-CE-BEd">
-                                        <rect key="frame" x="0.0" y="0.0" width="162" height="207"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="znZ-CE-BEd" customClass="CategoryCollectionViewCell" customModule="MoneyKeep" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="155" height="177"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="StP-sJ-xDR">
-                                            <rect key="frame" x="0.0" y="0.0" width="162" height="207"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="155" height="177"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W1Z-6p-9Jl">
+                                                    <rect key="frame" x="8" y="8" width="139" height="132.5"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqW-Ca-555">
+                                                    <rect key="frame" x="8" y="148.5" width="139" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="fqW-Ca-555" firstAttribute="leading" secondItem="StP-sJ-xDR" secondAttribute="leading" constant="8" id="1LP-rY-f9n"/>
+                                                <constraint firstAttribute="trailing" secondItem="fqW-Ca-555" secondAttribute="trailing" constant="8" id="1jP-Ha-IqS"/>
+                                                <constraint firstAttribute="trailing" secondItem="W1Z-6p-9Jl" secondAttribute="trailing" constant="8" id="7hh-ty-abb"/>
+                                                <constraint firstItem="W1Z-6p-9Jl" firstAttribute="leading" secondItem="StP-sJ-xDR" secondAttribute="leading" constant="8" id="9M8-wQ-xm4"/>
+                                                <constraint firstItem="fqW-Ca-555" firstAttribute="top" secondItem="W1Z-6p-9Jl" secondAttribute="bottom" constant="8" id="B5w-j6-FLQ"/>
+                                                <constraint firstItem="W1Z-6p-9Jl" firstAttribute="top" secondItem="StP-sJ-xDR" secondAttribute="top" constant="8" id="gDm-DX-Omb"/>
+                                                <constraint firstAttribute="bottom" secondItem="fqW-Ca-555" secondAttribute="bottom" constant="8" id="yBo-99-owl"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="162" height="207"/>
+                                        <size key="customSize" width="155" height="177"/>
+                                        <connections>
+                                            <outlet property="iconImage" destination="W1Z-6p-9Jl" id="Nqw-CJ-UnW"/>
+                                            <outlet property="labelName" destination="fqW-Ca-555" id="zap-Do-3P1"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -163,6 +198,9 @@
                         <viewLayoutGuide key="safeArea" id="kdO-z3-3Ty"/>
                     </view>
                     <navigationItem key="navigationItem" id="BiC-kH-Dpe"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Eog-co-3ro" id="po2-I0-HYf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NTY-Lj-0FT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

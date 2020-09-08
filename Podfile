@@ -6,4 +6,5 @@ target 'MoneyKeep' do
   use_frameworks!
   # Pods for MoneyKeep
   pod 'Alamofire'
+  pod 'Charts'
 end
