@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         btn.layer.cornerRadius = max(btn.bounds.width, btn.bounds.height)*0.5
         btn.layer.borderWidth = 3
         btn.layer.borderColor = btn.currentTitleColor.cgColor
-        showAddSpendIncomeDlg(false)
+        //showAddSpendIncomeDlg(false)
     }
 
     @IBAction func incomePressed(_ sender: Any) {
