@@ -6,6 +6,9 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="cat_rel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SpendsEntity" inverseName="cat_rel" inverseEntity="SpendsEntity"/>
     </entity>
+    <entity name="ColorSetEntity" representedClassName="ColorSetEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="color" optional="YES" attributeType="Transformable"/>
+    </entity>
     <entity name="SpendsEntity" representedClassName="SpendsEntity" syncable="YES" codeGenerationType="class">
         <attribute name="amount" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="cat_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
@@ -14,7 +17,8 @@
         <relationship name="cat_rel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CategoryEntity" inverseName="cat_rel" inverseEntity="CategoryEntity"/>
     </entity>
     <elements>
-        <element name="SpendsEntity" positionX="247.015625" positionY="-1.203125" width="128" height="118"/>
         <element name="CategoryEntity" positionX="-63" positionY="9" width="128" height="103"/>
+        <element name="SpendsEntity" positionX="247.015625" positionY="-1.203125" width="128" height="118"/>
+        <element name="ColorSetEntity" positionX="90" positionY="45" width="128" height="58"/>
     </elements>
 </model>
