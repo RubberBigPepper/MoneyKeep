@@ -60,15 +60,13 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qls-Al-5N0" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="20" y="262.5" width="374" height="371"/>
+                                <rect key="frame" x="20" y="200.5" width="374" height="495"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Qls-Al-5N0" secondAttribute="height" multiplier="374:371" id="t5d-3Q-VEL"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Qls-Al-5N0" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.552455" id="Pfg-6j-6Vr"/>
                             <constraint firstItem="TyQ-Ir-ppO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="QO8-Cl-r6W"/>
                             <constraint firstItem="Qls-Al-5N0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="RFl-0R-wAG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Qls-Al-5N0" secondAttribute="trailing" constant="20" id="SSx-Of-AIR"/>
@@ -88,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6951" y="139"/>
+            <point key="canvasLocation" x="6950.7246376811599" y="138.61607142857142"/>
         </scene>
         <!--Add Spend View Controller-->
         <scene sceneID="EB0-cd-Ojt">
@@ -98,19 +96,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите сумму:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITX-G4-eTN">
-                                <rect key="frame" x="20" y="88" width="374" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите сумму" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5IK-ZI-heH">
-                                <rect key="frame" x="20" y="117" width="374" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Eog-co-3ro">
-                                <rect key="frame" x="20" y="365" width="374" height="497"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="115" translatesAutoresizingMaskIntoConstraints="NO" id="Cwb-gW-iA3">
+                                <rect key="frame" x="20" y="88" width="374" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите сумму:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITX-G4-eTN">
+                                        <rect key="frame" x="0.0" y="0.0" width="127.5" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите сумму" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5IK-ZI-heH">
+                                        <rect key="frame" x="242.5" y="0.0" width="131.5" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Eog-co-3ro">
+                                <rect key="frame" x="20" y="516" width="374" height="346"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="myF-ke-qyp">
                                     <size key="itemSize" width="155" height="177"/>
@@ -154,20 +157,20 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <datePicker contentMode="scaleToFill" verticalHuggingPriority="1" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="BGm-Bq-Dfs">
-                                <rect key="frame" x="20" y="188" width="374" height="140"/>
+                            <datePicker contentMode="scaleToFill" verticalHuggingPriority="1" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="BGm-Bq-Dfs">
+                                <rect key="frame" x="20" y="251" width="374" height="140"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="140" id="Su6-Pa-MyL"/>
                                 </constraints>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберите дату" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f25-Kk-6wa">
-                                <rect key="frame" x="20" y="159" width="374" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Выберите категорию" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfz-uJ-vII">
+                                <rect key="frame" x="20" y="478" width="374" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберите категорию" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfz-uJ-vII">
-                                <rect key="frame" x="20" y="336" width="374" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Выберите дату" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f25-Kk-6wa">
+                                <rect key="frame" x="20" y="207" width="374" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -175,25 +178,21 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="ITX-G4-eTN" firstAttribute="top" secondItem="kdO-z3-3Ty" secondAttribute="top" id="2Qg-zm-PST"/>
                             <constraint firstItem="kdO-z3-3Ty" firstAttribute="trailing" secondItem="f25-Kk-6wa" secondAttribute="trailing" constant="20" id="2SH-fN-g6d"/>
                             <constraint firstItem="Eog-co-3ro" firstAttribute="leading" secondItem="kdO-z3-3Ty" secondAttribute="leading" constant="20" id="58p-hc-eZ9"/>
-                            <constraint firstItem="5IK-ZI-heH" firstAttribute="top" secondItem="ITX-G4-eTN" secondAttribute="bottom" constant="8" id="6wc-8P-nFk"/>
-                            <constraint firstItem="ITX-G4-eTN" firstAttribute="leading" secondItem="VaV-M2-TJU" secondAttribute="leadingMargin" id="8Ye-Nz-7vN"/>
                             <constraint firstItem="pfz-uJ-vII" firstAttribute="top" secondItem="BGm-Bq-Dfs" secondAttribute="bottom" constant="8" id="FyX-pE-yfN"/>
+                            <constraint firstItem="Cwb-gW-iA3" firstAttribute="top" secondItem="kdO-z3-3Ty" secondAttribute="top" id="JA6-F3-aCL"/>
+                            <constraint firstItem="Cwb-gW-iA3" firstAttribute="leading" secondItem="kdO-z3-3Ty" secondAttribute="leading" constant="20" id="Jil-Xi-J6j"/>
+                            <constraint firstItem="kdO-z3-3Ty" firstAttribute="trailing" secondItem="Cwb-gW-iA3" secondAttribute="trailing" constant="20" id="Mxq-ZB-dwH"/>
                             <constraint firstItem="kdO-z3-3Ty" firstAttribute="trailing" secondItem="pfz-uJ-vII" secondAttribute="trailing" constant="20" id="PO0-fz-ZqX"/>
                             <constraint firstItem="kdO-z3-3Ty" firstAttribute="trailing" secondItem="Eog-co-3ro" secondAttribute="trailing" constant="20" id="PWU-kB-kmD"/>
                             <constraint firstItem="Eog-co-3ro" firstAttribute="top" secondItem="pfz-uJ-vII" secondAttribute="bottom" constant="8" id="QDv-Va-Asa"/>
                             <constraint firstItem="pfz-uJ-vII" firstAttribute="leading" secondItem="kdO-z3-3Ty" secondAttribute="leading" constant="20" id="SV8-qa-EhA"/>
                             <constraint firstItem="kdO-z3-3Ty" firstAttribute="trailing" secondItem="BGm-Bq-Dfs" secondAttribute="trailing" constant="20" id="YJP-sj-Io0"/>
                             <constraint firstItem="BGm-Bq-Dfs" firstAttribute="top" secondItem="f25-Kk-6wa" secondAttribute="bottom" constant="8" id="fTe-ak-f1v"/>
-                            <constraint firstItem="ITX-G4-eTN" firstAttribute="trailing" secondItem="5IK-ZI-heH" secondAttribute="trailing" id="gA3-4c-KMm"/>
                             <constraint firstItem="f25-Kk-6wa" firstAttribute="leading" secondItem="kdO-z3-3Ty" secondAttribute="leading" constant="20" id="gR2-rA-SIY"/>
-                            <constraint firstItem="f25-Kk-6wa" firstAttribute="top" secondItem="5IK-ZI-heH" secondAttribute="bottom" constant="8" id="oIK-sb-X1e"/>
                             <constraint firstItem="Eog-co-3ro" firstAttribute="bottom" secondItem="kdO-z3-3Ty" secondAttribute="bottom" id="pUq-a1-L8V"/>
                             <constraint firstItem="BGm-Bq-Dfs" firstAttribute="leading" secondItem="kdO-z3-3Ty" secondAttribute="leading" constant="20" id="sJk-ag-zov"/>
-                            <constraint firstItem="ITX-G4-eTN" firstAttribute="leading" secondItem="5IK-ZI-heH" secondAttribute="leading" id="vVs-R6-f70"/>
-                            <constraint firstItem="ITX-G4-eTN" firstAttribute="trailing" secondItem="VaV-M2-TJU" secondAttribute="trailingMargin" id="wzo-dR-Ezh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kdO-z3-3Ty"/>
                     </view>
@@ -206,7 +205,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NTY-Lj-0FT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7781" y="139"/>
+            <point key="canvasLocation" x="7779.7101449275369" y="138.61607142857142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KZC-Bq-iXx">
