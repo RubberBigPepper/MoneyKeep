@@ -10,14 +10,24 @@ import UIKit
 
 class AddSpendViewController: UIViewController {
 
+    @IBOutlet weak var dateTime: UIDatePicker!
+    @IBOutlet weak var textDescribe: UITextField!
+    @IBOutlet weak var textAmount: UITextField!
     @IBOutlet weak var collectionView: UICollectionView!
+
+    public var isSpend = true//флаг запуска на траты или поступления
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        dateTime.maximumDate=Date()
+    }
+    
 }
 
 

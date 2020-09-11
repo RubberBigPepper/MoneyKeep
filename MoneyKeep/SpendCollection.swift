@@ -15,13 +15,15 @@ class SpendCollection{//тут будет полный список расход
     
     private var persistentsContainer: NSPersistentContainer{
         get{
-           let container = NSPersistentContainer(name: "SavingLearn")
-            container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-                if let error = error as NSError? {
-                    fatalError("Unresolved error \(error), \(error.userInfo)")
-                }
-            })
-            return container
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            return appDelegate.persistentContainer
+//           let container = NSPersistentContainer(name: "SavingLearn")
+//            container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+//                if let error = error as NSError? {
+//                    fatalError("Unresolved error \(error), \(error.userInfo)")
+//                }
+//            })
+//            return container
         }
     }
     

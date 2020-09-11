@@ -24,25 +24,25 @@ class ColorSet{//класс выполняет роль хранилища и г
     
     private var persistentsContainer: NSPersistentContainer{
         get{
-           let container = NSPersistentContainer(name: "ColorSet")
-            container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-                if let error = error as NSError? {
-                    fatalError("Unresolved error \(error), \(error.userInfo)")
-                }
-            })
-            return container
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            return appDelegate.persistentContainer
+
+//           let container = NSPersistentContainer(name: "ColorSet")
+//            container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+//                if let error = error as NSError? {
+//                    fatalError("Unresolved error \(error), \(error.userInfo)")
+//                }
+//            })
+//            return container
         }
     }
     
     init(_ maxColor: Int = 30) {
-     //  ReadFromCoredata()
+        ReadFromCoredata()
         if colorsInternal.count==0{//цвета не прочитались - генерируем новые
             colorsInternal = colorsOfCharts(maxColor)
+            SaveToCoredata()
         }
-    }
-    
-    deinit{
-        SaveToCoredata()
     }
     
     private func colorsOfCharts(_ count: Int) -> [UIColor] {
