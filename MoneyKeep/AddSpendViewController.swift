@@ -34,7 +34,6 @@ class AddSpendViewController: UIViewController {
     
 }
 
-
 extension AddSpendViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return CategoryCollection.Categories.count

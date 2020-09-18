@@ -22,7 +22,11 @@ class CategoryCollection{
     }
     
     private init(){
-        
+        ReadFromCoredata()
+        if count == 0 {//ничего не прочитано, поэтому сгенерируем новые
+            addCatehory(SpendCategory(imagePath: "", name: "", ID: 0))
+            SaveToCoredata()
+        }
     }
     
     public func addCatehory(_ category: SpendCategory){//добавление категории
@@ -70,6 +74,7 @@ class CategoryCollection{
             item.setValue(category.name, forKey: "name")
             item.setValue(category.imagePath, forKey: "icon")
         }
+        try? managedContext.save()
     }
     
     public func ReadFromCoredata(){//чтение категорий
@@ -101,6 +106,7 @@ class CategoryCollection{
                 result.prepareForDeletion()
             }
         }
+        try? managedContext.save()
     }
         
 }
