@@ -11,12 +11,14 @@ import UIKit
 //класс, содержащий битмапы для отрисовки
 class ImageCollection{
     var images: [String: UIImage] = [:]//главный словарь
-    
+        
     public var count: Int {//количество картинок в коллекции
         get{
             return images.count
         }
     }
+    
+    public static let imagesPub = ImageCollection()
     
     public func addImage(_ name: String){
         removeImage(name)

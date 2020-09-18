@@ -25,6 +25,12 @@ class ViewController: UIViewController {
         customizeChart(dataPoints: players, values: goals.map{ Double($0) })
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+    }
+    
+    
     private func prepareCircleBtn(_ btn: UIButton){
         btn.layer.cornerRadius = max(btn.bounds.width, btn.bounds.height)*0.5
         btn.layer.borderWidth = 3

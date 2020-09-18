@@ -28,19 +28,23 @@ class AddSpendViewController: UIViewController {
         dateTime.maximumDate=Date()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
+    
 }
 
 
 extension AddSpendViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0//dataArray.count
+        return CategoryCollection.Categories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "CatCollectionCell", for: indexPath) as! CategoryCollectionViewCell
-        //cell.labelText.text = self.dataArray[indexPath.row].1
-      //  let iconName = dataArray[indexPath.row].0
-       // cell.imageView.image = UIImage(named: iconName)
+        let category = CategoryCollection.Categories.getCategory(indexPath.row)
+        cell.labelName.text = category?.name
+        cell.iconImage.image = ImageCollection.imagesPub.getImage (category!.imagePath, createNew: true)
         return cell
     }
     

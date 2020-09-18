@@ -13,20 +13,6 @@ import UIKit
 class SpendCollection{//тут будет полный список расходов
     private var spends: [SpendItem] = []//все расходы будем писать тут
     
-    private var persistentsContainer: NSPersistentContainer{
-        get{
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            return appDelegate.persistentContainer
-//           let container = NSPersistentContainer(name: "SavingLearn")
-//            container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-//                if let error = error as NSError? {
-//                    fatalError("Unresolved error \(error), \(error.userInfo)")
-//                }
-//            })
-//            return container
-        }
-    }
-    
     public var count: Int{//количество итемов
         return spends.count
     }
@@ -53,8 +39,7 @@ class SpendCollection{//тут будет полный список расход
     
     public func SaveToCoredata() {
         ClearCoredata()
-        let persistentContainer = persistentsContainer
-        let managedContext = persistentContainer.viewContext
+        let managedContext = AppDelegate.managedContext
         
         for spendItem in spends{//сохраняем итемы
             let entity =  NSEntityDescription.entity(forEntityName: "SpendsEntity", in: managedContext)
@@ -70,8 +55,7 @@ class SpendCollection{//тут будет полный список расход
     
     public func ReadFromCoredata(){
         CategoryCollection.Categories.ReadFromCoredata()
-        let persistentContainer = persistentsContainer
-        let managedContext = persistentContainer.viewContext
+        let managedContext = AppDelegate.managedContext
         spends.removeAll()
         
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"SpendsEntity")
@@ -91,8 +75,7 @@ class SpendCollection{//тут будет полный список расход
     }
     
     private func ClearCoredata(){
-        let persistentContainer = persistentsContainer
-        let managedContext = persistentContainer.viewContext
+        let managedContext = AppDelegate.managedContext
 
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"SpendsEntity")
        

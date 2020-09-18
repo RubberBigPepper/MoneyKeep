@@ -22,21 +22,6 @@ class ColorSet{//класс выполняет роль хранилища и г
         }
     }
     
-    private var persistentsContainer: NSPersistentContainer{
-        get{
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            return appDelegate.persistentContainer
-
-//           let container = NSPersistentContainer(name: "ColorSet")
-//            container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-//                if let error = error as NSError? {
-//                    fatalError("Unresolved error \(error), \(error.userInfo)")
-//                }
-//            })
-//            return container
-        }
-    }
-    
     init(_ maxColor: Int = 30) {
         ReadFromCoredata()
         if colorsInternal.count==0{//цвета не прочитались - генерируем новые
@@ -59,20 +44,19 @@ class ColorSet{//класс выполняет роль хранилища и г
     
     public func SaveToCoredata() {
         ClearCoredata()
-        let persistentContainer = persistentsContainer
-        let managedContext = persistentContainer.viewContext
+        let managedContext = AppDelegate.managedContext
         
         for color in colorsInternal{//сохраняем цвета
             let entity =  NSEntityDescription.entity(forEntityName: "ColorSetEntity", in: managedContext)
             let item = NSManagedObject(entity: entity!, insertInto:managedContext)
             item.setValue(color, forKey: "color")
         }
+        try! managedContext.save()
     }
     
     public func ReadFromCoredata(){//чтение категорий
         colorsInternal.removeAll()
-        let persistentContainer = persistentsContainer
-        let managedContext = persistentContainer.viewContext
+       let managedContext = AppDelegate.managedContext
 
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"ColorSetEntity")
         let fetchedResults = try!managedContext.fetch(fetchRequest) as? [NSManagedObject]
@@ -86,8 +70,7 @@ class ColorSet{//класс выполняет роль хранилища и г
     }
     
     private func ClearCoredata(){
-        let persistentContainer = persistentsContainer
-        let managedContext = persistentContainer.viewContext
+        let managedContext = AppDelegate.managedContext
 
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"ColorSetEntity")
        

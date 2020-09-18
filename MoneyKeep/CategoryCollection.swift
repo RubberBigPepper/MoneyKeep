@@ -15,20 +15,6 @@ class CategoryCollection{
 
     private var categories: [SpendCategory] = []//все категории расходов будут тут
     
-    private var persistentsContainer: NSPersistentContainer{
-        get{
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            return appDelegate.persistentContainer
-//           let container = NSPersistentContainer(name: "SavingLearn")
-//            container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-//                if let error = error as NSError? {
-//                    fatalError("Unresolved error \(error), \(error.userInfo)")
-//                }
-//            })
-//            return container
-        }
-    }
-
     public var count: Int{//количество категорий
         get{
             return categories.count
@@ -74,8 +60,7 @@ class CategoryCollection{
     
     public func SaveToCoredata() {
         ClearCoredata()
-        let persistentContainer = persistentsContainer
-        let managedContext = persistentContainer.viewContext
+        let managedContext = AppDelegate.managedContext
         
         for category in categories{//сохраняем категории
             let entity =  NSEntityDescription.entity(forEntityName: "CategoryEntity", in: managedContext)
@@ -89,8 +74,7 @@ class CategoryCollection{
     
     public func ReadFromCoredata(){//чтение категорий
         categories.removeAll()
-        let persistentContainer = persistentsContainer
-        let managedContext = persistentContainer.viewContext
+        let managedContext = AppDelegate.managedContext
 
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"CategoryEntity")
         let fetchedResults = try!managedContext.fetch(fetchRequest) as? [NSManagedObject]
@@ -106,8 +90,7 @@ class CategoryCollection{
     }
     
     private func ClearCoredata(){
-        let persistentContainer = persistentsContainer
-        let managedContext = persistentContainer.viewContext
+        let managedContext = AppDelegate.managedContext
 
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"CategoryEntity")
        
