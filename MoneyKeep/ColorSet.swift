@@ -51,7 +51,7 @@ class ColorSet{//класс выполняет роль хранилища и г
             let item = NSManagedObject(entity: entity!, insertInto:managedContext)
             item.setValue(color, forKey: "color")
         }
-        try! managedContext.save()
+        AppDelegate.saveContext()
     }
     
     public func ReadFromCoredata(){//чтение категорий

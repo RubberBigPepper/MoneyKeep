@@ -21,10 +21,23 @@ class CategoryCollection{
         }
     }
     
+    private var __id: Int = 0
+    
+    private func nextID()->Int{
+        __id+=1
+        return __id
+    }
+    
     private init(){
         ReadFromCoredata()
         if count == 0 {//ничего не прочитано, поэтому сгенерируем новые
-            addCatehory(SpendCategory(imagePath: "", name: "", ID: 0))
+            addCatehory(SpendCategory(imagePath: "", name: "транспорт", ID: nextID()))
+            addCatehory(SpendCategory(imagePath: "", name: "автомобиль", ID: nextID()))
+            addCatehory(SpendCategory(imagePath: "", name: "продукты", ID: nextID()))
+            addCatehory(SpendCategory(imagePath: "", name: "одежда", ID: nextID()))
+            addCatehory(SpendCategory(imagePath: "", name: "еда", ID: nextID()))
+            addCatehory(SpendCategory(imagePath: "", name: "непредвиденные", ID: nextID()))
+            addCatehory(SpendCategory(imagePath: "", name: "отпуск", ID: nextID()))
             SaveToCoredata()
         }
     }
