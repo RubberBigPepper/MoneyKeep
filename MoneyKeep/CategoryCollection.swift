@@ -101,7 +101,7 @@ class CategoryCollection{
             item.setValue(category.name, forKey: "name")
             item.setValue(category.imagePath, forKey: "icon")
         }
-        try? managedContext.save()
+        AppDelegate.saveContext()
     }
     
     public func ReadFromCoredata(){//чтение категорий
@@ -134,7 +134,7 @@ class CategoryCollection{
                 result.prepareForDeletion()
             }
         }
-        try? managedContext.save()
+        AppDelegate.saveContext()
     }
         
 }
