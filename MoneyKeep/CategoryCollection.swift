@@ -31,13 +31,27 @@ class CategoryCollection{
     private init(){
         ReadFromCoredata()
         if count == 0 {//ничего не прочитано, поэтому сгенерируем новые
-            addCatehory(SpendCategory(imagePath: "", name: "транспорт", ID: nextID()))
-            addCatehory(SpendCategory(imagePath: "", name: "автомобиль", ID: nextID()))
-            addCatehory(SpendCategory(imagePath: "", name: "продукты", ID: nextID()))
-            addCatehory(SpendCategory(imagePath: "", name: "одежда", ID: nextID()))
-            addCatehory(SpendCategory(imagePath: "", name: "еда", ID: nextID()))
-            addCatehory(SpendCategory(imagePath: "", name: "непредвиденные", ID: nextID()))
-            addCatehory(SpendCategory(imagePath: "", name: "отпуск", ID: nextID()))
+            addCatehory(SpendCategory(imagePath: "", name: "Гигиена", ID: nextID(), type: .outcome))
+            addCatehory(SpendCategory(imagePath: "", name: "Еда", ID: nextID(), type: .outcome))
+            addCatehory(SpendCategory(imagePath: "", name: "Жилье", ID: nextID(), type: .outcome))
+            addCatehory(SpendCategory(imagePath: "", name: "Здоровье", ID: nextID(), type: .outcome))
+            addCatehory(SpendCategory(imagePath: "", name: "Одежда", ID: nextID(), type: .outcome))
+            addCatehory(SpendCategory(imagePath: "", name: "Кафе", ID: nextID(), type: .outcome))
+            addCatehory(SpendCategory(imagePath: "", name: "Машина", ID: nextID(), type: .outcome))
+            addCatehory(SpendCategory(imagePath: "", name: "Дом. животные", ID: nextID(), type: .outcome))
+            addCatehory(SpendCategory(imagePath: "", name: "Подарки", ID: nextID(), type: .outcome))
+            addCatehory(SpendCategory(imagePath: "", name: "Развлечения", ID: nextID(), type: .outcome))
+            addCatehory(SpendCategory(imagePath: "", name: "Связь", ID: nextID(), type: .outcome))
+            addCatehory(SpendCategory(imagePath: "", name: "Спорт", ID: nextID(), type: .outcome))
+            addCatehory(SpendCategory(imagePath: "", name: "Счета", ID: nextID(), type: .outcome))
+            addCatehory(SpendCategory(imagePath: "", name: "Такси", ID: nextID(), type: .outcome))
+            addCatehory(SpendCategory(imagePath: "", name: "Транспорт", ID: nextID(), type: .outcome))
+            
+            addCatehory(SpendCategory(imagePath: "", name: "Депозит", ID: nextID(), type: .income))
+            addCatehory(SpendCategory(imagePath: "", name: "Зарплата", ID: nextID(), type: .income))
+            addCatehory(SpendCategory(imagePath: "", name: "Дивиденды", ID: nextID(), type: .income))
+            addCatehory(SpendCategory(imagePath: "", name: "Гонорар", ID: nextID(), type: .income))
+            addCatehory(SpendCategory(imagePath: "", name: "Прочие доходы", ID: nextID(), type: .income))
             SaveToCoredata()
         }
     }
@@ -101,7 +115,8 @@ class CategoryCollection{
             for result in results{
                 let category = SpendCategory(imagePath: result.value(forKey: "icon") as! String,
                                              name: result.value(forKey: "name") as! String,
-                                             ID: result.value(forKey: "cat_id") as! Int)
+                                             ID: result.value(forKey: "cat_id") as! Int,
+                                             type: result.value(forKey: "type") as! SpendType)
                 categories.append(category)
             }
         }

@@ -8,6 +8,10 @@
 
 import Foundation
 
+enum SpendType {//тип расходов - доход или расход
+    case income, outcome
+}
+
 class SpendItem{//класс, содержащий одну позицию расхода (знак -) или дохода (+)
     let category : SpendCategory //категория расхода
     let amount : Float //количество расхода, если расход, то минус, если доход, то положительный
