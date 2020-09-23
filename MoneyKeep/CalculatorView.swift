@@ -58,7 +58,7 @@ class CalculatorView: UIView {
     private func setupNumberPad() {
 //        let  FontSize:CGFloat = 25
         let buttonSizeX: CGFloat = frame.size.width / 4 //по X четыре ряда кнопок
-        let buttonSizeY: CGFloat = frame.size.width / 6 //по Y пять радов кнопок и один ряд для лабели
+        let buttonSizeY: CGFloat = frame.size.height / 6 //по Y пять радов кнопок и один ряд для лабели
         
         setupButton(CGRect(x: 0, y: self.frame.size.height-buttonSizeY, width: buttonSizeX, height: buttonSizeY),
                     "0", .white, 1, #selector(zeroTapped))
@@ -74,17 +74,17 @@ class CalculatorView: UIView {
                 number+=1
             }
         }
-        setupButton(CGRect(x: 0, y: self.frame.size.height-buttonSizeY*5, width: buttonSizeX*2, height: buttonSizeY),
+        setupButton(CGRect(x: 0, y: buttonSizeY, width: buttonSizeX*2, height: buttonSizeY),
                     "CE", .white, 1, #selector(clearResult))
         
-        setupButton(CGRect(x: buttonSizeX*2, y: self.frame.size.height-buttonSizeY*5, width: buttonSizeX, height: buttonSizeY),
+        setupButton(CGRect(x: buttonSizeX*2, y: buttonSizeY, width: buttonSizeX, height: buttonSizeY),
                     "<<", .white, 1, #selector(backSpace))
 
         
         let operations = ["=","+", "-", "x", "÷"]
         
         for x in 0..<operations.count {
-            let rect=CGRect(x: buttonSizeX * 3, y: self.frame.size.height-(buttonSizeY * CGFloat(x+1)), width: buttonSizeX, height: buttonSizeY)
+            let rect=CGRect(x: buttonSizeX * 3, y: frame.size.height-(buttonSizeY * CGFloat(x+1)), width: buttonSizeX, height: buttonSizeY)
             setupButton(rect,operations[x], .init(red: 2, green: 0.8, blue: 0, alpha: 1), x+1, #selector(operationPressed))
         }
         resultLabel.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: buttonSizeY)
