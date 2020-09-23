@@ -13,6 +13,7 @@
 		50382C2124EE33CA0085272D /* SpendCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50382C2024EE33CA0085272D /* SpendCategory.swift */; };
 		50382C2324EE36600085272D /* SpendItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50382C2224EE36600085272D /* SpendItem.swift */; };
 		50382C2524EE38E10085272D /* SpendCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50382C2424EE38E10085272D /* SpendCollection.swift */; };
+		503B1C22251B614200EBBF2B /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503B1C21251B614200EBBF2B /* CalculatorView.swift */; };
 		50418D7724EBD0FD003EDD6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50418D7624EBD0FD003EDD6B /* AppDelegate.swift */; };
 		50418D7924EBD0FD003EDD6B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50418D7824EBD0FD003EDD6B /* SceneDelegate.swift */; };
 		50418D7B24EBD0FE003EDD6B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50418D7A24EBD0FE003EDD6B /* ViewController.swift */; };
@@ -34,6 +35,7 @@
 		50382C2024EE33CA0085272D /* SpendCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendCategory.swift; sourceTree = "<group>"; };
 		50382C2224EE36600085272D /* SpendItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendItem.swift; sourceTree = "<group>"; };
 		50382C2424EE38E10085272D /* SpendCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendCollection.swift; sourceTree = "<group>"; };
+		503B1C21251B614200EBBF2B /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
 		50418D7324EBD0FD003EDD6B /* MoneyKeep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyKeep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50418D7624EBD0FD003EDD6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50418D7824EBD0FD003EDD6B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				5005821C25024F040076927D /* CategoryCollectionViewCell.swift */,
 				5005821E25024F990076927D /* AddSpendViewController.swift */,
 				502272562508B14C00914E9A /* ColorSet.swift */,
+				503B1C21251B614200EBBF2B /* CalculatorView.swift */,
 			);
 			path = MoneyKeep;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				5005821D25024F040076927D /* CategoryCollectionViewCell.swift in Sources */,
 				5005821F25024F990076927D /* AddSpendViewController.swift in Sources */,
 				50A0B89824F91D4800DE5E23 /* CategoryCollection.swift in Sources */,
+				503B1C22251B614200EBBF2B /* CalculatorView.swift in Sources */,
 				50418D8124EBD0FE003EDD6B /* MoneyKeep.xcdatamodeld in Sources */,
 				50382C2524EE38E10085272D /* SpendCollection.swift in Sources */,
 			);
@@ -324,7 +328,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -379,7 +383,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
