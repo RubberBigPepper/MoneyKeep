@@ -3,20 +3,26 @@ PODS:
   - Charts (3.5.0):
     - Charts/Core (= 3.5.0)
   - Charts/Core (3.5.0)
+  - KDCalendar (1.8.9):
+    - KDCalendar/EventManager (= 1.8.9)
+  - KDCalendar/EventManager (1.8.9)
 
 DEPENDENCIES:
   - Alamofire
   - Charts
+  - KDCalendar (~> 1.8.9)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - Charts
+    - KDCalendar
 
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   Charts: 40a08591df1f8ad5c223ddedfb1a06da92f24f7c
+  KDCalendar: a587bc486b992d82ef94bd04001fce9baf45e518
 
-PODFILE CHECKSUM: 180ab6e1aa61aa4f52bc0764ad19064980dee341
+PODFILE CHECKSUM: 8252460c1f77532e85f1a0de35dc257e5a909822
 
 COCOAPODS: 1.9.3

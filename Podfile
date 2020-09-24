@@ -7,4 +7,6 @@ target 'MoneyKeep' do
   # Pods for MoneyKeep
   pod 'Alamofire'
   pod 'Charts'
+  pod 'KDCalendar', '~> 1.8.9'
 end
+	

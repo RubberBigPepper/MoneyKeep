@@ -7,29 +7,57 @@
 //
 
 import UIKit
+import KDCalendar
 
 class AddSpendViewController: UIViewController {
 
-    @IBOutlet weak var dateTime: UIDatePicker!
+    @IBOutlet weak var btnDate: UIButton!
+    @IBOutlet weak var calculatorView: CalculatorView!
     @IBOutlet weak var textDescribe: UITextField!
-    @IBOutlet weak var textAmount: UITextField!
     @IBOutlet weak var collectionView: UICollectionView!
 
     public var isSpend = true//флаг запуска на траты или поступления
         
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        collectionView.dataSource = self
         // Do any additional setup after loading the view.
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        dateTime.maximumDate=Date()
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+    }
+    
+    @IBAction func btnDatePressed(_ sender: UIButton) {
+        selectDate()
+    }
+    
+    private func selectDate(){
+        let alert = UIAlertController(title: "Выберите дату",
+        message: "Add a new to do text", preferredStyle: .alert)
+
+        let calendarView = CalendarView()//frame: CGRectMake(0, 0, CGRectGetWidth(alert.view.frame), 320))
+      //  calendarView.stop
+
+        alert.view.addSubview(calendarView)
+        alert.view.heightAnchor.constraint(equalToConstant: 350).isActive = true
+        calendarView.leadingAnchor.constraint(equalTo: alert.view.leadingAnchor).isActive = true
+        calendarView.trailingAnchor.constraint(equalTo: alert.view.trailingAnchor).isActive = true
+        calendarView.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 100).isActive = true
+       
+        
+        let saveAction = UIAlertAction(title: "ОК", style: .default) {
+            (action: UIAlertAction!) -> Void in
+            let textField = alert.textFields![0]
+        }
+        alert.addAction(saveAction)
+        
+        present(alert, animated: true, completion: nil)
     }
     
 }

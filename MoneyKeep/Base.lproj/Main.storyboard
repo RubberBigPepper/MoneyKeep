@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -98,108 +97,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберите дату" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f25-Kk-6wa">
-                                <rect key="frame" x="20" y="200.5" width="374" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Назначение платежа" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEP-fh-ty7">
-                                <rect key="frame" x="20" y="130" width="374" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите назначение платежа" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ECu-KD-nWA">
-                                <rect key="frame" x="20" y="158.5" width="374" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <datePicker contentMode="scaleToFill" verticalHuggingPriority="1" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="BGm-Bq-Dfs">
-                                <rect key="frame" x="20" y="229" width="374" height="140"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="140" id="fnr-6q-QjK"/>
-                                </constraints>
-                                <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
-                                    <!--1970-01-01 11:00:00 +0000-->
-                                </date>
-                                <date key="maximumDate" timeIntervalSinceReferenceDate="1167562800">
-                                    <!--2037-12-31 11:00:00 +0000-->
-                                </date>
-                            </datePicker>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="NYE-nl-1GA">
-                                <rect key="frame" x="20" y="88" width="374" height="34"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите сумму:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ITX-G4-eTN">
-                                        <rect key="frame" x="0.0" y="0.0" width="127" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите сумму" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5IK-ZI-heH">
-                                        <rect key="frame" x="135" y="0.0" width="239" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                                    </textField>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="bpG-YQ-TeF"/>
-                                </constraints>
-                            </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="er7-wL-Icj" customClass="CalculatorView" customModule="MoneyKeep" customModuleProvider="target">
-                                <rect key="frame" x="20" y="377" width="374" height="485"/>
+                                <rect key="frame" x="20" y="88" width="374" height="282"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="kdO-z3-3Ty"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="kdO-z3-3Ty" firstAttribute="trailing" secondItem="f25-Kk-6wa" secondAttribute="trailing" constant="20" id="2Rd-Pq-N6X"/>
-                            <constraint firstItem="NYE-nl-1GA" firstAttribute="top" secondItem="kdO-z3-3Ty" secondAttribute="top" id="IP3-fY-3lE"/>
-                            <constraint firstItem="bEP-fh-ty7" firstAttribute="top" secondItem="NYE-nl-1GA" secondAttribute="bottom" constant="8" id="Iky-rW-quf"/>
-                            <constraint firstItem="BGm-Bq-Dfs" firstAttribute="top" secondItem="f25-Kk-6wa" secondAttribute="bottom" constant="8" id="NY8-bO-PyN"/>
-                            <constraint firstItem="NYE-nl-1GA" firstAttribute="leading" secondItem="kdO-z3-3Ty" secondAttribute="leading" constant="20" id="QrK-Nm-Cha"/>
-                            <constraint firstItem="BGm-Bq-Dfs" firstAttribute="leading" secondItem="kdO-z3-3Ty" secondAttribute="leading" constant="20" id="Rnu-2T-5RX"/>
-                            <constraint firstItem="kdO-z3-3Ty" firstAttribute="trailing" secondItem="bEP-fh-ty7" secondAttribute="trailing" constant="20" id="Uwe-hC-kGI"/>
-                            <constraint firstItem="kdO-z3-3Ty" firstAttribute="trailing" secondItem="BGm-Bq-Dfs" secondAttribute="trailing" constant="20" id="XJV-0k-KoK"/>
-                            <constraint firstItem="kdO-z3-3Ty" firstAttribute="trailing" secondItem="ECu-KD-nWA" secondAttribute="trailing" constant="20" id="bRy-UU-wLs"/>
-                            <constraint firstItem="er7-wL-Icj" firstAttribute="leading" secondItem="kdO-z3-3Ty" secondAttribute="leading" constant="20" id="ceg-CE-0Og"/>
-                            <constraint firstItem="er7-wL-Icj" firstAttribute="bottom" secondItem="kdO-z3-3Ty" secondAttribute="bottom" id="f3x-85-0eh"/>
-                            <constraint firstItem="er7-wL-Icj" firstAttribute="top" secondItem="BGm-Bq-Dfs" secondAttribute="bottom" constant="8" id="gU6-a7-z7y"/>
-                            <constraint firstItem="bEP-fh-ty7" firstAttribute="leading" secondItem="kdO-z3-3Ty" secondAttribute="leading" constant="20" id="lIZ-Li-lvG"/>
-                            <constraint firstItem="kdO-z3-3Ty" firstAttribute="trailing" secondItem="er7-wL-Icj" secondAttribute="trailing" constant="20" id="lRL-yI-4Ts"/>
-                            <constraint firstItem="ECu-KD-nWA" firstAttribute="leading" secondItem="kdO-z3-3Ty" secondAttribute="leading" constant="20" id="ndD-xY-Op6"/>
-                            <constraint firstItem="kdO-z3-3Ty" firstAttribute="trailing" secondItem="NYE-nl-1GA" secondAttribute="trailing" constant="20" id="pBA-sb-SXd"/>
-                            <constraint firstItem="ECu-KD-nWA" firstAttribute="top" secondItem="bEP-fh-ty7" secondAttribute="bottom" constant="8" id="quc-rS-f3H"/>
-                            <constraint firstItem="f25-Kk-6wa" firstAttribute="leading" secondItem="kdO-z3-3Ty" secondAttribute="leading" constant="20" id="vHJ-Qh-L5M"/>
-                            <constraint firstItem="f25-Kk-6wa" firstAttribute="top" secondItem="ECu-KD-nWA" secondAttribute="bottom" constant="8" id="ydg-28-p1R"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="BiC-kH-Dpe">
-                        <barButtonItem key="backBarButtonItem" title="Назад" id="Xxi-ZS-nDH"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="collectionView" destination="Eog-co-3ro" id="po2-I0-HYf"/>
-                        <outlet property="dateTime" destination="BGm-Bq-Dfs" id="mbb-sQ-hO7"/>
-                        <outlet property="textAmount" destination="5IK-ZI-heH" id="hsT-ah-Poi"/>
-                        <outlet property="textDescribe" destination="ECu-KD-nWA" id="94F-71-pXj"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NTY-Lj-0FT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="7779.7101449275369" y="138.61607142857142"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="EN9-7I-hLs">
-            <objects>
-                <viewController id="xQ4-I2-z9A" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="LiI-qy-o4a">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Eog-co-3ro">
-                                <rect key="frame" x="20" y="219" width="374" height="458.5"/>
+                                <rect key="frame" x="20" y="469" width="374" height="393"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="myF-ke-qyp">
@@ -209,7 +112,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="znZ-CE-BEd" customClass="CategoryCollectionViewCell" customModule="MoneyKeep" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="CatCollectionCell" id="znZ-CE-BEd" customClass="CategoryCollectionViewCell" customModule="MoneyKeep" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="155" height="177"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="StP-sJ-xDR">
@@ -244,21 +147,53 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Выберите категорию" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfz-uJ-vII">
-                                <rect key="frame" x="20" y="190" width="374" height="20.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Заметка" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ECu-KD-nWA">
+                                <rect key="frame" x="20" y="427" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mrF-FE-FNM">
+                                <rect key="frame" x="20" y="378" width="374" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Дата: ">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                                <variation key="heightClass=compact-widthClass=compact">
+                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                </variation>
+                                <connections>
+                                    <action selector="btnDatePressed:" destination="80y-sc-mBS" eventType="touchUpInside" id="Dca-Hb-0c3"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="k96-Ph-kLE"/>
+                        <viewLayoutGuide key="safeArea" id="kdO-z3-3Ty"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mrF-FE-FNM" firstAttribute="leading" secondItem="kdO-z3-3Ty" secondAttribute="leading" constant="20" id="15E-d0-7Q0"/>
+                            <constraint firstItem="mrF-FE-FNM" firstAttribute="top" secondItem="er7-wL-Icj" secondAttribute="bottom" constant="8" symbolic="YES" id="Jvu-e8-LO6"/>
+                            <constraint firstItem="ECu-KD-nWA" firstAttribute="top" secondItem="mrF-FE-FNM" secondAttribute="bottom" constant="8" symbolic="YES" id="VA8-2i-2FV"/>
+                            <constraint firstItem="er7-wL-Icj" firstAttribute="top" secondItem="kdO-z3-3Ty" secondAttribute="top" id="Wd7-c1-q3h"/>
+                            <constraint firstItem="er7-wL-Icj" firstAttribute="leading" secondItem="kdO-z3-3Ty" secondAttribute="leading" constant="20" id="a2M-NL-5Ur"/>
+                            <constraint firstItem="kdO-z3-3Ty" firstAttribute="trailing" secondItem="mrF-FE-FNM" secondAttribute="trailing" constant="20" id="imK-ss-FmJ"/>
+                            <constraint firstItem="ECu-KD-nWA" firstAttribute="leading" secondItem="kdO-z3-3Ty" secondAttribute="leading" constant="20" id="nOJ-DV-zrJ"/>
+                            <constraint firstItem="kdO-z3-3Ty" firstAttribute="trailing" secondItem="ECu-KD-nWA" secondAttribute="trailing" constant="20" id="xMa-GA-XW1"/>
+                            <constraint firstItem="kdO-z3-3Ty" firstAttribute="trailing" secondItem="er7-wL-Icj" secondAttribute="trailing" constant="20" id="yMK-Dh-hjo"/>
+                            <constraint firstItem="Eog-co-3ro" firstAttribute="top" secondItem="ECu-KD-nWA" secondAttribute="bottom" constant="8" symbolic="YES" id="yiS-BS-qiI"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="BiC-kH-Dpe">
+                        <barButtonItem key="backBarButtonItem" title="Отмена" id="Xxi-ZS-nDH"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="btnDate" destination="mrF-FE-FNM" id="kQX-gf-yGa"/>
+                        <outlet property="calculatorView" destination="er7-wL-Icj" id="AZI-ic-1d9"/>
+                        <outlet property="collectionView" destination="Eog-co-3ro" id="VBV-dg-wtw"/>
+                        <outlet property="textDescribe" destination="ECu-KD-nWA" id="5RA-Md-Ygh"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zki-7L-KRW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NTY-Lj-0FT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8525" y="139"/>
+            <point key="canvasLocation" x="7779.7101449275369" y="138.61607142857142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KZC-Bq-iXx">
@@ -280,6 +215,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

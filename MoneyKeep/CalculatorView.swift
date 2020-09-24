@@ -58,7 +58,7 @@ class CalculatorView: UIView {
     private func setupNumberPad() {
 //        let  FontSize:CGFloat = 25
         let buttonSizeX: CGFloat = frame.size.width / 4 //по X четыре ряда кнопок
-        let buttonSizeY: CGFloat = frame.size.width / 6 //по Y пять радов кнопок и один ряд для лабели
+        let buttonSizeY: CGFloat = frame.size.height / 6 //по Y пять радов кнопок и один ряд для лабели
         
         setupButton(CGRect(x: 0, y: self.frame.size.height-buttonSizeY, width: buttonSizeX, height: buttonSizeY),
                     "0", .white, 1, #selector(zeroTapped))
