@@ -38,22 +38,25 @@ class AddSpendViewController: UIViewController {
     }
     
     private func selectDate(){
-        let alert = UIAlertController(title: "Выберите дату",
-        message: "Add a new to do text", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Выберите дату", message: nil, preferredStyle: .alert)
 
-        let calendarView = CalendarView()//frame: CGRectMake(0, 0, CGRectGetWidth(alert.view.frame), 320))
+        let margin = 10.0
+        let rect = CGRect(x: margin, y: margin, width: Double(alert.view.bounds.size.width) - margin*2, height: Double(alert.view.bounds.size.height) - margin*2)
+        let calendarView = CalendarView()
+        calendarView.frame=rect
       //  calendarView.stop
 
         alert.view.addSubview(calendarView)
-        alert.view.heightAnchor.constraint(equalToConstant: 350).isActive = true
-        calendarView.leadingAnchor.constraint(equalTo: alert.view.leadingAnchor).isActive = true
-        calendarView.trailingAnchor.constraint(equalTo: alert.view.trailingAnchor).isActive = true
-        calendarView.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 100).isActive = true
+//        alert.view.heightAnchor.constraint(equalToConstant: 350).isActive = true
+  //      alert.view.widthAnchor.constraint(equalToConstant: 350).isActive = true
+    //    calendarView.leadingAnchor.constraint(equalTo: alert.view.leadingAnchor).isActive = true
+      //  calendarView.trailingAnchor.constraint(equalTo: alert.view.trailingAnchor).isActive = true
+//        calendarView.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 100).isActive = true
        
         
         let saveAction = UIAlertAction(title: "ОК", style: .default) {
             (action: UIAlertAction!) -> Void in
-            let textField = alert.textFields![0]
+
         }
         alert.addAction(saveAction)
         
@@ -75,10 +78,10 @@ extension AddSpendViewController: UICollectionViewDelegateFlowLayout, UICollecti
         return cell
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
 ////        let widthScr = UIScreen.main.bounds.size.width/2
-//        let widthScr = collectionView.bounds.size.width/2
-//        return CGSize(width: widthScr, height: widthScr)
-//    }
+        let widthScr = collectionView.bounds.size.width/2
+        return CGSize(width: widthScr, height: widthScr)
+    }
     
 }
