@@ -11,7 +11,7 @@ import CoreData
 import UIKit
 
 class CategoryCollection{
-    public static let Categories: CategoryCollection = CategoryCollection() //реализуем синглтон
+    public static let Categories  = CategoryCollection() //реализуем синглтон
 
     private var categories: [SpendCategory] = []//все категории расходов будут тут
     
@@ -31,32 +31,32 @@ class CategoryCollection{
     private init(){
         ReadFromCoredata()
         if count == 0 {//ничего не прочитано, поэтому сгенерируем новые
-            addCatehory(SpendCategory(imagePath: "", name: "Гигиена", ID: nextID(), type: .outcome))
-            addCatehory(SpendCategory(imagePath: "", name: "Еда", ID: nextID(), type: .outcome))
-            addCatehory(SpendCategory(imagePath: "", name: "Жилье", ID: nextID(), type: .outcome))
-            addCatehory(SpendCategory(imagePath: "", name: "Здоровье", ID: nextID(), type: .outcome))
-            addCatehory(SpendCategory(imagePath: "", name: "Одежда", ID: nextID(), type: .outcome))
-            addCatehory(SpendCategory(imagePath: "", name: "Кафе", ID: nextID(), type: .outcome))
-            addCatehory(SpendCategory(imagePath: "", name: "Машина", ID: nextID(), type: .outcome))
-            addCatehory(SpendCategory(imagePath: "", name: "Дом. животные", ID: nextID(), type: .outcome))
-            addCatehory(SpendCategory(imagePath: "", name: "Подарки", ID: nextID(), type: .outcome))
-            addCatehory(SpendCategory(imagePath: "", name: "Развлечения", ID: nextID(), type: .outcome))
-            addCatehory(SpendCategory(imagePath: "", name: "Связь", ID: nextID(), type: .outcome))
-            addCatehory(SpendCategory(imagePath: "", name: "Спорт", ID: nextID(), type: .outcome))
-            addCatehory(SpendCategory(imagePath: "", name: "Счета", ID: nextID(), type: .outcome))
-            addCatehory(SpendCategory(imagePath: "", name: "Такси", ID: nextID(), type: .outcome))
-            addCatehory(SpendCategory(imagePath: "", name: "Транспорт", ID: nextID(), type: .outcome))
+            addCategory(SpendCategory(imagePath: "beauty", name: "Гигиена", ID: nextID(), type: .outcome))
+            addCategory(SpendCategory(imagePath: "food", name: "Еда", ID: nextID(), type: .outcome))
+            addCategory(SpendCategory(imagePath: "house", name: "Жилье", ID: nextID(), type: .outcome))
+            addCategory(SpendCategory(imagePath: "medicine", name: "Здоровье", ID: nextID(), type: .outcome))
+            addCategory(SpendCategory(imagePath: "clothes", name: "Одежда", ID: nextID(), type: .outcome))
+            addCategory(SpendCategory(imagePath: "cafe", name: "Кафе", ID: nextID(), type: .outcome))
+            addCategory(SpendCategory(imagePath: "fuel_station", name: "Машина", ID: nextID(), type: .outcome))
+            addCategory(SpendCategory(imagePath: "hobby", name: "Хобби", ID: nextID(), type: .outcome))
+            addCategory(SpendCategory(imagePath: "gift", name: "Подарки", ID: nextID(), type: .outcome))
+            addCategory(SpendCategory(imagePath: "entertaiment", name: "Развлечения", ID: nextID(), type: .outcome))
+            addCategory(SpendCategory(imagePath: "service", name: "Связь", ID: nextID(), type: .outcome))
+            addCategory(SpendCategory(imagePath: "sport", name: "Спорт", ID: nextID(), type: .outcome))
+            addCategory(SpendCategory(imagePath: "bill", name: "Счета", ID: nextID(), type: .outcome))
+            addCategory(SpendCategory(imagePath: "car", name: "Такси", ID: nextID(), type: .outcome))
+            addCategory(SpendCategory(imagePath: "transport", name: "Транспорт", ID: nextID(), type: .outcome))
             
-            addCatehory(SpendCategory(imagePath: "", name: "Депозит", ID: nextID(), type: .income))
-            addCatehory(SpendCategory(imagePath: "", name: "Зарплата", ID: nextID(), type: .income))
-            addCatehory(SpendCategory(imagePath: "", name: "Дивиденды", ID: nextID(), type: .income))
-            addCatehory(SpendCategory(imagePath: "", name: "Гонорар", ID: nextID(), type: .income))
-            addCatehory(SpendCategory(imagePath: "", name: "Прочие доходы", ID: nextID(), type: .income))
+            addCategory(SpendCategory(imagePath: "safe", name: "Депозит", ID: nextID(), type: .income))
+            addCategory(SpendCategory(imagePath: "money", name: "Зарплата", ID: nextID(), type: .income))
+            addCategory(SpendCategory(imagePath: "passive_income", name: "Дивиденды", ID: nextID(), type: .income))
+            addCategory(SpendCategory(imagePath: "tag", name: "Гонорар", ID: nextID(), type: .income))
+            addCategory(SpendCategory(imagePath: "miscellaneous", name: "Прочие доходы", ID: nextID(), type: .income))
             SaveToCoredata()
         }
     }
     
-    public func addCatehory(_ category: SpendCategory){//добавление категории
+    public func addCategory(_ category: SpendCategory){//добавление категории
         if FindCategory(category.ID) != nil { return }//такая категория уже есть, пропускаем
         categories.append(category)
     }
@@ -100,6 +100,12 @@ class CategoryCollection{
             item.setValue(category.ID, forKey: "cat_id")
             item.setValue(category.name, forKey: "name")
             item.setValue(category.imagePath, forKey: "icon")
+            switch category.type {
+            case .income:
+                item.setValue(1, forKey: "type")
+            default:
+                item.setValue(0, forKey: "type")
+            }
         }
         AppDelegate.saveContext()
     }
@@ -113,10 +119,14 @@ class CategoryCollection{
 
         if let results = fetchedResults {
             for result in results{
+                var type = SpendType.outcome
+                let value=result.value(forKey: "type") as! Int
+                if value == 0 { type = .outcome}
+                else { type = .income}
                 let category = SpendCategory(imagePath: result.value(forKey: "icon") as! String,
                                              name: result.value(forKey: "name") as! String,
                                              ID: result.value(forKey: "cat_id") as! Int,
-                                             type: result.value(forKey: "type") as! SpendType)
+                                             type: type)
                 categories.append(category)
             }
         }
