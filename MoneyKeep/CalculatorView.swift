@@ -22,7 +22,14 @@ class CalculatorView: UIView {
         case add, subtract, multiply, divide, percent
     }
     
-    private var resultLabel: UILabel = {
+    public var result: Double?{
+        get{
+            if let text = resultLabel.text, let value = Double(text) { return value }
+            return nil
+        }
+    }
+    
+    private var resultLabel: UILabel = {//
         let label = UILabel()
         label.backgroundColor = .gray
         label.text = "0"
@@ -35,6 +42,16 @@ class CalculatorView: UIView {
         label.minimumScaleFactor = 0.25
         return label
     }()
+    
+    public func BlinkLabelRed(){//мигание красным лабелью
+        let oldBackground=self.resultLabel.backgroundColor
+        UIView.animate(withDuration: 1.5, animations: {
+            self.resultLabel.backgroundColor = .red
+        }, completion: { complected in
+            if complected {
+                self.resultLabel.backgroundColor = oldBackground}            
+        })
+    }
     
     override func layoutSubviews() {
         setupNumberPad()
