@@ -13,7 +13,7 @@
 		50382C2124EE33CA0085272D /* SpendCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50382C2024EE33CA0085272D /* SpendCategory.swift */; };
 		50382C2324EE36600085272D /* SpendItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50382C2224EE36600085272D /* SpendItem.swift */; };
 		50382C2524EE38E10085272D /* SpendCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50382C2424EE38E10085272D /* SpendCollection.swift */; };
-		5038B2482521C0A400C1D037 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5038B2472521C0A400C1D037 /* CalendarViewController.swift */; };
+		5039B00D2523A33900875E24 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5039B00C2523A33900875E24 /* DateExtension.swift */; };
 		503B1C22251B614200EBBF2B /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503B1C21251B614200EBBF2B /* CalculatorView.swift */; };
 		50418D7724EBD0FD003EDD6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50418D7624EBD0FD003EDD6B /* AppDelegate.swift */; };
 		50418D7924EBD0FD003EDD6B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50418D7824EBD0FD003EDD6B /* SceneDelegate.swift */; };
@@ -36,7 +36,7 @@
 		50382C2024EE33CA0085272D /* SpendCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendCategory.swift; sourceTree = "<group>"; };
 		50382C2224EE36600085272D /* SpendItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendItem.swift; sourceTree = "<group>"; };
 		50382C2424EE38E10085272D /* SpendCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendCollection.swift; sourceTree = "<group>"; };
-		5038B2472521C0A400C1D037 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		5039B00C2523A33900875E24 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		503B1C21251B614200EBBF2B /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
 		50418D7324EBD0FD003EDD6B /* MoneyKeep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyKeep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50418D7624EBD0FD003EDD6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +94,7 @@
 		50418D7524EBD0FD003EDD6B /* MoneyKeep */ = {
 			isa = PBXGroup;
 			children = (
+				5039B00C2523A33900875E24 /* DateExtension.swift */,
 				50418D7624EBD0FD003EDD6B /* AppDelegate.swift */,
 				50418D7824EBD0FD003EDD6B /* SceneDelegate.swift */,
 				50418D7A24EBD0FE003EDD6B /* ViewController.swift */,
@@ -111,7 +112,6 @@
 				5005821E25024F990076927D /* AddSpendViewController.swift */,
 				502272562508B14C00914E9A /* ColorSet.swift */,
 				503B1C21251B614200EBBF2B /* CalculatorView.swift */,
-				5038B2472521C0A400C1D037 /* CalendarViewController.swift */,
 			);
 			path = MoneyKeep;
 			sourceTree = "<group>";
@@ -252,8 +252,8 @@
 				5005821F25024F990076927D /* AddSpendViewController.swift in Sources */,
 				50A0B89824F91D4800DE5E23 /* CategoryCollection.swift in Sources */,
 				503B1C22251B614200EBBF2B /* CalculatorView.swift in Sources */,
+				5039B00D2523A33900875E24 /* DateExtension.swift in Sources */,
 				50418D8124EBD0FE003EDD6B /* MoneyKeep.xcdatamodeld in Sources */,
-				5038B2482521C0A400C1D037 /* CalendarViewController.swift in Sources */,
 				50382C2524EE38E10085272D /* SpendCollection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

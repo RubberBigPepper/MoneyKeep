@@ -110,18 +110,8 @@
                                     <action selector="btnDatePressed:" destination="80y-sc-mBS" eventType="touchUpInside" id="Dca-Hb-0c3"/>
                                 </connections>
                             </button>
-                            <datePicker contentMode="scaleToFill" verticalCompressionResistancePriority="1" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="UnM-8X-02m">
-                                <rect key="frame" x="20" y="133" width="374" height="90"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="dCc-am-pgR"/>
-                                </constraints>
-                            </datePicker>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="er7-wL-Icj" customClass="CalculatorView" customModule="MoneyKeep" customModuleProvider="target">
-                                <rect key="frame" x="20" y="269" width="374" height="282"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" keyboardDismissMode="interactive" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Eog-co-3ro">
-                                <rect key="frame" x="20" y="559" width="374" height="303"/>
+                                <rect key="frame" x="20" y="469" width="374" height="393"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="1" minimumInteritemSpacing="1" id="myF-ke-qyp">
                                     <size key="itemSize" width="156" height="196"/>
@@ -175,27 +165,28 @@
                                 </cells>
                             </collectionView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Заметка" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ECu-KD-nWA">
-                                <rect key="frame" x="20" y="227" width="374" height="34"/>
+                                <rect key="frame" x="20" y="137" width="374" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="W3W-PI-T6h"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="er7-wL-Icj" customClass="CalculatorView" customModule="MoneyKeep" customModuleProvider="target">
+                                <rect key="frame" x="20" y="179" width="374" height="282"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kdO-z3-3Ty"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ECu-KD-nWA" firstAttribute="top" secondItem="UnM-8X-02m" secondAttribute="bottom" constant="4" id="3SF-21-GnO"/>
-                            <constraint firstItem="UnM-8X-02m" firstAttribute="leading" secondItem="VaV-M2-TJU" secondAttribute="leading" constant="20" id="97O-9p-lFv"/>
+                            <constraint firstItem="ECu-KD-nWA" firstAttribute="top" secondItem="mrF-FE-FNM" secondAttribute="bottom" constant="8" symbolic="YES" id="0xD-s7-cbb"/>
                             <constraint firstItem="er7-wL-Icj" firstAttribute="height" secondItem="VaV-M2-TJU" secondAttribute="height" multiplier="0.314732" id="B4Q-NI-cUc"/>
                             <constraint firstItem="mrF-FE-FNM" firstAttribute="top" secondItem="kdO-z3-3Ty" secondAttribute="top" id="EGs-0s-N5X"/>
                             <constraint firstItem="kdO-z3-3Ty" firstAttribute="trailing" secondItem="mrF-FE-FNM" secondAttribute="trailing" constant="20" id="HP9-oV-VC8"/>
                             <constraint firstItem="er7-wL-Icj" firstAttribute="top" secondItem="ECu-KD-nWA" secondAttribute="bottom" constant="8" symbolic="YES" id="LMG-4G-AbJ"/>
-                            <constraint firstAttribute="trailing" secondItem="UnM-8X-02m" secondAttribute="trailing" constant="20" id="Nlf-zV-KiX"/>
                             <constraint firstItem="Eog-co-3ro" firstAttribute="leading" secondItem="kdO-z3-3Ty" secondAttribute="leading" constant="20" id="Sts-kH-ht8"/>
                             <constraint firstItem="kdO-z3-3Ty" firstAttribute="trailing" secondItem="Eog-co-3ro" secondAttribute="trailing" constant="20" id="Uvl-2Z-QPc"/>
-                            <constraint firstItem="UnM-8X-02m" firstAttribute="top" secondItem="mrF-FE-FNM" secondAttribute="bottom" constant="4" id="YyX-9S-ehq"/>
                             <constraint firstItem="er7-wL-Icj" firstAttribute="leading" secondItem="kdO-z3-3Ty" secondAttribute="leading" constant="20" id="c95-PG-gDX"/>
                             <constraint firstItem="kdO-z3-3Ty" firstAttribute="trailing" secondItem="ECu-KD-nWA" secondAttribute="trailing" constant="20" id="cu1-4E-QOc"/>
                             <constraint firstItem="ECu-KD-nWA" firstAttribute="leading" secondItem="kdO-z3-3Ty" secondAttribute="leading" constant="20" id="jpH-0h-Xe5"/>
@@ -213,44 +204,12 @@
                         <outlet property="btnDate" destination="mrF-FE-FNM" id="kQX-gf-yGa"/>
                         <outlet property="calculatorView" destination="er7-wL-Icj" id="AZI-ic-1d9"/>
                         <outlet property="collectionView" destination="Eog-co-3ro" id="VBV-dg-wtw"/>
-                        <outlet property="datePicker" destination="UnM-8X-02m" id="0l1-tg-f2N"/>
                         <outlet property="textDescribe" destination="ECu-KD-nWA" id="5RA-Md-Ygh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NTY-Lj-0FT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7779.7101449275369" y="138.61607142857142"/>
-        </scene>
-        <!--Calendar View Controller-->
-        <scene sceneID="Zi3-yu-wQN">
-            <objects>
-                <viewController id="ah9-Mi-3Mz" customClass="CalendarViewController" customModule="MoneyKeep" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Xt8-HN-Tv8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WxZ-e4-9hb" customClass="CalendarView" customModule="KDCalendar">
-                                <rect key="frame" x="20" y="0.0" width="374" height="808"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="Uxc-RU-pJg"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="WxZ-e4-9hb" firstAttribute="leading" secondItem="Uxc-RU-pJg" secondAttribute="leading" constant="20" id="8Ld-W8-IvZ"/>
-                            <constraint firstItem="Uxc-RU-pJg" firstAttribute="bottom" secondItem="WxZ-e4-9hb" secondAttribute="bottom" id="K9F-bK-5W0"/>
-                            <constraint firstItem="WxZ-e4-9hb" firstAttribute="top" secondItem="Uxc-RU-pJg" secondAttribute="top" id="TMX-9R-GlV"/>
-                            <constraint firstItem="Uxc-RU-pJg" firstAttribute="trailing" secondItem="WxZ-e4-9hb" secondAttribute="trailing" constant="20" id="tca-4I-YoE"/>
-                        </constraints>
-                    </view>
-                    <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <connections>
-                        <outlet property="calendarView" destination="WxZ-e4-9hb" id="bhY-5V-kdK"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dHF-Ox-VxJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="8587" y="139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KZC-Bq-iXx">

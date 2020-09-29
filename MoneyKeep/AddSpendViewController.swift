@@ -15,9 +15,6 @@ class AddSpendViewController: UIViewController {
     @IBOutlet weak var calculatorView: CalculatorView!
     @IBOutlet weak var textDescribe: UITextField!
     @IBOutlet weak var collectionView: UICollectionView!
-
-    @IBOutlet weak var datePicker: UIDatePicker!
-    private var datePickerHeight: CGFloat = 60.0//Высота пикера при раскрывании
     
     public var isSpend = true//флаг запуска на траты или поступления
     
@@ -30,7 +27,7 @@ class AddSpendViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         textDescribe.delegate = self
-        // Do any additional setup after loading the view.
+        btnDate.setTitle("Дата: \(Date().toString())", for: .normal)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -43,31 +40,11 @@ class AddSpendViewController: UIViewController {
     }
     
     @IBAction func btnDatePressed(_ sender: UIButton) {
-//        if !datePicker.isHidden {
-//            datePickerHeight = datePicker.frame.size.height
-//            datePicker.isHidden = true
-//            datePicker.frame.size.height = 0
-//        }
-//        else{
-//            datePicker.isHidden = false
-//            datePicker.frame.size.height = datePickerHeight
-//        }
-        selectDate()
-    }
-    
-    private func selectDate(){//календарь выбора даты
-        let calendar = YYCalendar(normalCalendarLangType: .ENG, date: "07/01/2019", format: "MM/dd/yyyy") { date in
-//            btnDate.setTitle(<#T##title: String?##String?#>, for: <#T##UIControl.State#>)
+        let calendar = YYCalendar(limitedCalendarLangType: .ENG, date: Date().toString(), minDate: nil, maxDate: Date().toString(), format: "dd.MM.yyyy") {
+            date in
+            self.btnDate.setTitle("Дата: \(date)", for: .normal)
         }
-
         calendar.show()
-    }
-    
-    private func selectDateAsPopupController(){
-        let vc = CalendarViewController()
-        vc.modalPresentationStyle = .overCurrentContext
-        vc.modalTransitionStyle = .crossDissolve
-        present(vc, animated: true, completion: nil)
     }
 }
 

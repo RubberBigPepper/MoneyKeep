@@ -54,6 +54,7 @@ class CalculatorView: UIView {
     }
     
     override func layoutSubviews() {
+        backgroundColor = .lightGray
         setupNumberPad()
     }
     
@@ -78,24 +79,24 @@ class CalculatorView: UIView {
         let buttonSizeY: CGFloat = frame.size.height / 6 //по Y пять радов кнопок и один ряд для лабели
         
         setupButton(CGRect(x: 0, y: self.frame.size.height-buttonSizeY, width: buttonSizeX, height: buttonSizeY),
-                    "0", .white, 1, #selector(zeroTapped))
+                    "0", .lightGray, 1, #selector(zeroTapped))
         setupButton(CGRect(x: buttonSizeX, y: self.frame.size.height-buttonSizeY, width: buttonSizeX, height: buttonSizeY),
-                    ".", .white, 2, #selector(decimalTapped))
+                    ".", .lightGray, 2, #selector(decimalTapped))
         setupButton(CGRect(x: buttonSizeX * 2, y: self.frame.size.height-buttonSizeY, width: buttonSizeX, height: buttonSizeY),
-                    "%", .white, 3, #selector(percentTapped))
+                    "%", .lightGray, 3, #selector(percentTapped))
         var number=1
         for y in 2..<5 {//остальные цифровые кнопки
             for x in 0..<3{
                 let rect=CGRect(x: buttonSizeX * CGFloat(x), y: self.frame.size.height-buttonSizeY * CGFloat(y), width: buttonSizeX, height: buttonSizeY)
-                setupButton(rect,"\(number)", .white, number, #selector(numberPressed))
+                setupButton(rect,"\(number)", .lightGray, number, #selector(numberPressed))
                 number+=1
             }
         }
         setupButton(CGRect(x: 0, y: buttonSizeY, width: buttonSizeX*2, height: buttonSizeY),
-                    "CE", .white, 1, #selector(clearResult))
+                    "CE", .lightGray, 1, #selector(clearResult))
         
         setupButton(CGRect(x: buttonSizeX*2, y: buttonSizeY, width: buttonSizeX, height: buttonSizeY),
-                    "<<", .white, 1, #selector(backSpace))
+                    "<<", .lightGray, 1, #selector(backSpace))
 
         
         let operations = ["=","+", "-", "x", "÷"]
