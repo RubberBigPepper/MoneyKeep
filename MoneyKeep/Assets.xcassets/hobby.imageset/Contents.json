@@ -1,7 +1,6 @@
 {
   "images" : [
     {
-      "filename" : "iconfinder___hobby_leasure_kite_vacation_3668852.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -10,6 +9,7 @@
       "scale" : "2x"
     },
     {
+      "filename" : "iconfinder___hobby_leasure_kite_vacation_3668852.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -1,7 +1,6 @@
 {
   "images" : [
     {
-      "filename" : "iconfinder___beauty_health_cosmetics_heart_3668865.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -10,6 +9,7 @@
       "scale" : "2x"
     },
     {
+      "filename" : "iconfinder___beauty_health_cosmetics_heart_3668865.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

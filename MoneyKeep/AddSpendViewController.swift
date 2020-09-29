@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import KDCalendar
+import YYCalendar
 
 class AddSpendViewController: UIViewController {
 
@@ -16,6 +16,9 @@ class AddSpendViewController: UIViewController {
     @IBOutlet weak var textDescribe: UITextField!
     @IBOutlet weak var collectionView: UICollectionView!
 
+    @IBOutlet weak var datePicker: UIDatePicker!
+    private var datePickerHeight: CGFloat = 60.0//Высота пикера при раскрывании
+    
     public var isSpend = true//флаг запуска на траты или поступления
     
     private let itemsPerRow: CGFloat = 3
@@ -40,24 +43,24 @@ class AddSpendViewController: UIViewController {
     }
     
     @IBAction func btnDatePressed(_ sender: UIButton) {
-//        selectDate()
-        selectDateAsPopupController()
+//        if !datePicker.isHidden {
+//            datePickerHeight = datePicker.frame.size.height
+//            datePicker.isHidden = true
+//            datePicker.frame.size.height = 0
+//        }
+//        else{
+//            datePicker.isHidden = false
+//            datePicker.frame.size.height = datePickerHeight
+//        }
+        selectDate()
     }
     
     private func selectDate(){//календарь выбора даты
+        let calendar = YYCalendar(normalCalendarLangType: .ENG, date: "07/01/2019", format: "MM/dd/yyyy") { date in
+//            btnDate.setTitle(<#T##title: String?##String?#>, for: <#T##UIControl.State#>)
+        }
 
-        let vc = UIAlertController(title: "Pickup time", message: nil, preferredStyle: .alert)
-        let calendarController = CalendarViewController()
-        vc.addChild(calendarController)
-//        vc.addTextField(configurationHandler:{ (textfield) -> Void in
-//            let datepicker = UIDatePicker()
-//            // add delegate ... here
-//
-//            textfield.inputView = datepicker
-//        })
-        vc.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        vc.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        present(vc, animated: true, completion: nil)
+        calendar.show()
     }
     
     private func selectDateAsPopupController(){

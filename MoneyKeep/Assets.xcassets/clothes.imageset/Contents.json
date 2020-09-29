@@ -1,7 +1,6 @@
 {
   "images" : [
     {
-      "filename" : "iconfinder___clothes_tshirt_fashion_outfit_3668861.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -10,6 +9,7 @@
       "scale" : "2x"
     },
     {
+      "filename" : "iconfinder___clothes_tshirt_fashion_outfit_3668861.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
