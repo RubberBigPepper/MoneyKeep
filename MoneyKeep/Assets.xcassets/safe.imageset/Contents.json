@@ -1,7 +1,6 @@
 {
   "images" : [
     {
-      "filename" : "iconfinder___savings_safe_deposit_percentage_3668840.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -10,6 +9,7 @@
       "scale" : "2x"
     },
     {
+      "filename" : "iconfinder___savings_safe_deposit_percentage_3668840.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

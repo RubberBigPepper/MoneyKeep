@@ -1,7 +1,6 @@
 {
   "images" : [
     {
-      "filename" : "iconfinder___shopping_shop_store_bag_3668838.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -10,6 +9,7 @@
       "scale" : "2x"
     },
     {
+      "filename" : "iconfinder___shopping_shop_store_bag_3668838.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

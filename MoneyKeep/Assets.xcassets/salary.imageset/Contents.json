@@ -1,7 +1,6 @@
 {
   "images" : [
     {
-      "filename" : "iconfinder___salary_wallet_income_earnings_3668841.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -10,6 +9,7 @@
       "scale" : "2x"
     },
     {
+      "filename" : "iconfinder___salary_wallet_income_earnings_3668841.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
