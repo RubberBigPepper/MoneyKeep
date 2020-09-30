@@ -8,6 +8,9 @@
 
 import UIKit
 
+protocol CalculatorViewResult {
+    func resultChanged(_ result: Double?)
+}
 //класс реализует калькулятор, написан по мотивам статьи на хабре
 // https://habr.com/ru/company/otus/blog/514108/
 class CalculatorView: UIView {
@@ -17,6 +20,13 @@ class CalculatorView: UIView {
     private var firstNumber: Double = 0
     private var resultNumber: Double = 0
     private var currentOperations: Operation?
+
+    //цвета кнопок
+    private var colorNumCell = UIColor.white //кнопки цифр и точк
+    private var colorOperationCell = UIColor.init(red: 2, green: 0.8, blue: 0, alpha: 1) //операции
+    private var colorSpecSell = UIColor.lightGray //специальные (стереть)
+    private var colorHighlighted = UIColor.green
+    private var colorTextCell = UIColor.black
     
     enum Operation {
         case add, subtract, multiply, divide, percent
@@ -29,11 +39,13 @@ class CalculatorView: UIView {
         }
     }
     
+    public var delegate: CalculatorViewResult? = nil
+    
     private var resultLabel: UILabel = {//
         let label = UILabel()
-        label.backgroundColor = .gray
+        label.backgroundColor = UIColor.gray
         label.text = "0"
-        label.textColor = .white
+        label.textColor = UIColor.white
         label.textAlignment = .right
         label.font = UIFont(name: "Helvetica", size: 40)
         label.adjustsFontSizeToFitWidth = true
@@ -43,69 +55,69 @@ class CalculatorView: UIView {
         return label
     }()
     
-    public func BlinkLabelRed(){//мигание красным лабелью
-        let oldBackground=self.resultLabel.backgroundColor
-        UIView.animate(withDuration: 1.5, animations: {
-            self.resultLabel.backgroundColor = .red
-        }, completion: { complected in
-            if complected {
-                self.resultLabel.backgroundColor = oldBackground}            
-        })
-    }
-    
     override func layoutSubviews() {
-        backgroundColor = .lightGray
         setupNumberPad()
+        resultLabel.addObserver(self, forKeyPath: "text", options: [.old, .new], context: nil)
     }
     
-    private func setupButton(_ frame: CGRect, _ title: String,_ colorBG: UIColor, _ tag: Int, _ action: Selector?){//}->UIButton{
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+      if keyPath == "text" {
+        let newText=change?[.newKey]
+        if let text=newText as? String, let value = Double(text) {
+            self.delegate?.resultChanged(value)
+        }
+        else{
+            self.delegate?.resultChanged(nil)
+        }
+      }
+    }
+    
+    private func setupButton(_ frame: CGRect, _ title: String,_ colorBG: UIColor, _ tag: Int, _ action: Selector?){
         //подготовка одной кнопки, будем вызывать для всех для краткости
         let resBtn = UIButton(frame: frame)
-        resBtn.setTitleColor(.black, for: .normal)
+        resBtn.setTitleColor(self.colorTextCell, for: .normal)
         resBtn.setBackgroundColor(colorBG, for: .normal)
-        resBtn.setBackgroundColor(.green, for: .highlighted)
+        resBtn.setBackgroundColor(self.colorHighlighted, for: .highlighted)
         resBtn.setTitle(title, for: .normal)
         resBtn.tag = tag
         if action != nil {
             resBtn.addTarget(self, action: action!, for: .touchUpInside)
         }
         self.addSubview(resBtn)
-        //return resBtn
     }
     
-    private func setupNumberPad() {
-//        let  FontSize:CGFloat = 25
+    private func setupNumberPad() {//инициализируем и расположим все элементы
         let buttonSizeX: CGFloat = frame.size.width / 4 //по X четыре ряда кнопок
         let buttonSizeY: CGFloat = frame.size.height / 6 //по Y пять радов кнопок и один ряд для лабели
         
         setupButton(CGRect(x: 0, y: self.frame.size.height-buttonSizeY, width: buttonSizeX, height: buttonSizeY),
-                    "0", .lightGray, 1, #selector(zeroTapped))
+                    "0", self.colorNumCell, 1, #selector(zeroTapped))
         setupButton(CGRect(x: buttonSizeX, y: self.frame.size.height-buttonSizeY, width: buttonSizeX, height: buttonSizeY),
-                    ".", .lightGray, 2, #selector(decimalTapped))
+                    ".", self.colorNumCell, 2, #selector(decimalTapped))
         setupButton(CGRect(x: buttonSizeX * 2, y: self.frame.size.height-buttonSizeY, width: buttonSizeX, height: buttonSizeY),
-                    "%", .lightGray, 3, #selector(percentTapped))
+                    "%", self.colorOperationCell, 3, #selector(percentTapped))
         var number=1
         for y in 2..<5 {//остальные цифровые кнопки
             for x in 0..<3{
                 let rect=CGRect(x: buttonSizeX * CGFloat(x), y: self.frame.size.height-buttonSizeY * CGFloat(y), width: buttonSizeX, height: buttonSizeY)
-                setupButton(rect,"\(number)", .lightGray, number, #selector(numberPressed))
+                setupButton(rect,"\(number)", self.colorNumCell, number, #selector(numberPressed))
                 number+=1
             }
         }
         setupButton(CGRect(x: 0, y: buttonSizeY, width: buttonSizeX*2, height: buttonSizeY),
-                    "CE", .lightGray, 1, #selector(clearResult))
+                    "CE", self.colorSpecSell, 1, #selector(clearResult))
         
         setupButton(CGRect(x: buttonSizeX*2, y: buttonSizeY, width: buttonSizeX, height: buttonSizeY),
-                    "<<", .lightGray, 1, #selector(backSpace))
-
+                    "<<", self.colorSpecSell, 1, #selector(backSpace))
         
         let operations = ["=","+", "-", "x", "÷"]
         
         for x in 0..<operations.count {
             let rect=CGRect(x: buttonSizeX * 3, y: frame.size.height-(buttonSizeY * CGFloat(x+1)), width: buttonSizeX, height: buttonSizeY)
-            setupButton(rect,operations[x], .init(red: 2, green: 0.8, blue: 0, alpha: 1), x+1, #selector(operationPressed))
+            setupButton(rect,operations[x], self.colorOperationCell, x+1, #selector(operationPressed))
         }
         resultLabel.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: buttonSizeY)
+
         self.addSubview(resultLabel)
     }
     

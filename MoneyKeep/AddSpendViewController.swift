@@ -22,6 +22,8 @@ class AddSpendViewController: UIViewController {
         super.viewDidLoad()       
         textDescribe.delegate = self
         btnDate.setTitle("Дата: \(Date().toString())", for: .normal)
+        calculatorView.delegate = self
+        btnCategory.isEnabled = false
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -58,5 +60,11 @@ extension AddSpendViewController: UITextFieldDelegate{//это для сокры
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+extension AddSpendViewController: CalculatorViewResult{//
+    func resultChanged(_ result: Double?) {
+        btnCategory.isEnabled = (result != nil) && (result! > 0.0)
     }
 }
