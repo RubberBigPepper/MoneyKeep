@@ -98,7 +98,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mrF-FE-FNM">
-                                <rect key="frame" x="20" y="88" width="374" height="41"/>
+                                <rect key="frame" x="20" y="88" width="374" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="C29-KC-XA2"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Дата: ">
                                     <color key="titleColor" systemColor="labelColor"/>
@@ -110,8 +113,74 @@
                                     <action selector="btnDatePressed:" destination="80y-sc-mBS" eventType="touchUpInside" id="Dca-Hb-0c3"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Заметка" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ECu-KD-nWA">
+                                <rect key="frame" x="20" y="156" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="er7-wL-Icj" customClass="CalculatorView" customModule="MoneyKeep" customModuleProvider="target">
+                                <rect key="frame" x="20" y="198" width="374" height="596"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Svp-xL-JHf">
+                                <rect key="frame" x="20" y="802" width="374" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="geD-kf-Ovh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Выбрать категорию"/>
+                                <connections>
+                                    <action selector="btnCategoryPressed:" destination="80y-sc-mBS" eventType="touchUpInside" id="r3V-pk-NAs"/>
+                                    <segue destination="ubh-cO-avB" kind="popoverPresentation" identifier="SelectCategory" popoverAnchorView="Svp-xL-JHf" id="eKC-bd-juj">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kdO-z3-3Ty"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mrF-FE-FNM" firstAttribute="trailing" secondItem="er7-wL-Icj" secondAttribute="trailing" id="7d7-Cm-p87"/>
+                            <constraint firstItem="ECu-KD-nWA" firstAttribute="top" secondItem="mrF-FE-FNM" secondAttribute="bottom" constant="8" symbolic="YES" id="BlO-aj-WD8"/>
+                            <constraint firstItem="Svp-xL-JHf" firstAttribute="top" secondItem="er7-wL-Icj" secondAttribute="bottom" constant="8" symbolic="YES" id="Rc8-N4-mO3"/>
+                            <constraint firstItem="Svp-xL-JHf" firstAttribute="leading" secondItem="er7-wL-Icj" secondAttribute="leading" id="XMZ-FY-Y0M"/>
+                            <constraint firstItem="mrF-FE-FNM" firstAttribute="top" secondItem="kdO-z3-3Ty" secondAttribute="top" id="ZZI-EB-Ip3"/>
+                            <constraint firstItem="Svp-xL-JHf" firstAttribute="leading" secondItem="ECu-KD-nWA" secondAttribute="leading" id="cI4-0E-c4U"/>
+                            <constraint firstItem="kdO-z3-3Ty" firstAttribute="trailing" secondItem="ECu-KD-nWA" secondAttribute="trailing" constant="20" id="cu1-4E-QOc"/>
+                            <constraint firstItem="Svp-xL-JHf" firstAttribute="bottom" secondItem="kdO-z3-3Ty" secondAttribute="bottom" id="djn-V3-Z6X"/>
+                            <constraint firstItem="Svp-xL-JHf" firstAttribute="trailing" secondItem="er7-wL-Icj" secondAttribute="trailing" id="evC-1K-t6H"/>
+                            <constraint firstItem="ECu-KD-nWA" firstAttribute="leading" secondItem="kdO-z3-3Ty" secondAttribute="leading" constant="20" id="jpH-0h-Xe5"/>
+                            <constraint firstItem="Svp-xL-JHf" firstAttribute="trailing" secondItem="ECu-KD-nWA" secondAttribute="trailing" id="kun-9k-NiI"/>
+                            <constraint firstItem="mrF-FE-FNM" firstAttribute="leading" secondItem="er7-wL-Icj" secondAttribute="leading" id="p3g-2G-MF3"/>
+                            <constraint firstItem="er7-wL-Icj" firstAttribute="top" secondItem="ECu-KD-nWA" secondAttribute="bottom" constant="8" symbolic="YES" id="r9m-g3-vrZ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="BiC-kH-Dpe">
+                        <nil key="title"/>
+                        <barButtonItem key="backBarButtonItem" title="Отмена" id="Xxi-ZS-nDH"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="btnCategory" destination="Svp-xL-JHf" id="YiC-QH-gK0"/>
+                        <outlet property="btnDate" destination="mrF-FE-FNM" id="kQX-gf-yGa"/>
+                        <outlet property="calculatorView" destination="er7-wL-Icj" id="AZI-ic-1d9"/>
+                        <outlet property="collectionView" destination="Eog-co-3ro" id="VBV-dg-wtw"/>
+                        <outlet property="textDescribe" destination="ECu-KD-nWA" id="5RA-Md-Ygh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NTY-Lj-0FT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7779.7101449275369" y="138.61607142857142"/>
+        </scene>
+        <!--Выберите категорию-->
+        <scene sceneID="itB-0S-dsO">
+            <objects>
+                <viewController title="Выберите категорию" id="ubh-cO-avB" customClass="SelectCategoryViewController" customModule="MoneyKeep" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7dm-Or-P7d">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" keyboardDismissMode="interactive" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Eog-co-3ro">
-                                <rect key="frame" x="20" y="469" width="374" height="393"/>
+                                <rect key="frame" x="20" y="0.0" width="374" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="1" minimumInteritemSpacing="1" id="myF-ke-qyp">
                                     <size key="itemSize" width="156" height="196"/>
@@ -125,7 +194,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cq6-ee-QDl">
                                             <rect key="frame" x="0.0" y="0.0" width="156" height="196"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="gOI-sS-l0Q">
                                                     <rect key="frame" x="8" y="8" width="140" height="180"/>
@@ -164,52 +233,23 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Заметка" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ECu-KD-nWA">
-                                <rect key="frame" x="20" y="137" width="374" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="W3W-PI-T6h"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="er7-wL-Icj" customClass="CalculatorView" customModule="MoneyKeep" customModuleProvider="target">
-                                <rect key="frame" x="20" y="179" width="374" height="282"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="kdO-z3-3Ty"/>
+                        <viewLayoutGuide key="safeArea" id="AP2-Cc-6Gz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ECu-KD-nWA" firstAttribute="top" secondItem="mrF-FE-FNM" secondAttribute="bottom" constant="8" symbolic="YES" id="0xD-s7-cbb"/>
-                            <constraint firstItem="er7-wL-Icj" firstAttribute="height" secondItem="VaV-M2-TJU" secondAttribute="height" multiplier="0.314732" id="B4Q-NI-cUc"/>
-                            <constraint firstItem="mrF-FE-FNM" firstAttribute="top" secondItem="kdO-z3-3Ty" secondAttribute="top" id="EGs-0s-N5X"/>
-                            <constraint firstItem="kdO-z3-3Ty" firstAttribute="trailing" secondItem="mrF-FE-FNM" secondAttribute="trailing" constant="20" id="HP9-oV-VC8"/>
-                            <constraint firstItem="er7-wL-Icj" firstAttribute="top" secondItem="ECu-KD-nWA" secondAttribute="bottom" constant="8" symbolic="YES" id="LMG-4G-AbJ"/>
-                            <constraint firstItem="Eog-co-3ro" firstAttribute="leading" secondItem="kdO-z3-3Ty" secondAttribute="leading" constant="20" id="Sts-kH-ht8"/>
-                            <constraint firstItem="kdO-z3-3Ty" firstAttribute="trailing" secondItem="Eog-co-3ro" secondAttribute="trailing" constant="20" id="Uvl-2Z-QPc"/>
-                            <constraint firstItem="er7-wL-Icj" firstAttribute="leading" secondItem="kdO-z3-3Ty" secondAttribute="leading" constant="20" id="c95-PG-gDX"/>
-                            <constraint firstItem="kdO-z3-3Ty" firstAttribute="trailing" secondItem="ECu-KD-nWA" secondAttribute="trailing" constant="20" id="cu1-4E-QOc"/>
-                            <constraint firstItem="ECu-KD-nWA" firstAttribute="leading" secondItem="kdO-z3-3Ty" secondAttribute="leading" constant="20" id="jpH-0h-Xe5"/>
-                            <constraint firstItem="mrF-FE-FNM" firstAttribute="leading" secondItem="kdO-z3-3Ty" secondAttribute="leading" constant="20" id="pZB-Vn-FVq"/>
-                            <constraint firstItem="Eog-co-3ro" firstAttribute="bottom" secondItem="kdO-z3-3Ty" secondAttribute="bottom" id="uTv-ka-wCD"/>
-                            <constraint firstItem="Eog-co-3ro" firstAttribute="top" secondItem="er7-wL-Icj" secondAttribute="bottom" constant="8" symbolic="YES" id="vGY-Fv-Jn8"/>
-                            <constraint firstItem="kdO-z3-3Ty" firstAttribute="trailing" secondItem="er7-wL-Icj" secondAttribute="trailing" constant="20" id="zRf-Et-G4a"/>
+                            <constraint firstItem="Eog-co-3ro" firstAttribute="bottom" secondItem="AP2-Cc-6Gz" secondAttribute="bottom" id="Kex-25-uaR"/>
+                            <constraint firstItem="Eog-co-3ro" firstAttribute="top" secondItem="AP2-Cc-6Gz" secondAttribute="top" id="Ydf-q8-J7q"/>
+                            <constraint firstItem="Eog-co-3ro" firstAttribute="leading" secondItem="AP2-Cc-6Gz" secondAttribute="leading" constant="20" id="lJS-Ma-nDx"/>
+                            <constraint firstItem="AP2-Cc-6Gz" firstAttribute="trailing" secondItem="Eog-co-3ro" secondAttribute="trailing" constant="20" id="sjT-UX-Iex"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="BiC-kH-Dpe">
-                        <nil key="title"/>
-                        <barButtonItem key="backBarButtonItem" title="Отмена" id="Xxi-ZS-nDH"/>
-                    </navigationItem>
                     <connections>
-                        <outlet property="btnDate" destination="mrF-FE-FNM" id="kQX-gf-yGa"/>
-                        <outlet property="calculatorView" destination="er7-wL-Icj" id="AZI-ic-1d9"/>
-                        <outlet property="collectionView" destination="Eog-co-3ro" id="VBV-dg-wtw"/>
-                        <outlet property="textDescribe" destination="ECu-KD-nWA" id="5RA-Md-Ygh"/>
+                        <outlet property="collectionView" destination="Eog-co-3ro" id="Ttz-mT-3nL"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NTY-Lj-0FT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uRn-XJ-kFJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7779.7101449275369" y="138.61607142857142"/>
+            <point key="canvasLocation" x="8598.5507246376819" y="138.61607142857142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KZC-Bq-iXx">

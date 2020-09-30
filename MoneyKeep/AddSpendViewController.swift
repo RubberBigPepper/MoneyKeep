@@ -14,18 +14,12 @@ class AddSpendViewController: UIViewController {
     @IBOutlet weak var btnDate: UIButton!
     @IBOutlet weak var calculatorView: CalculatorView!
     @IBOutlet weak var textDescribe: UITextField!
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var btnCategory: UIButton!
     
     public var isSpend = true//флаг запуска на траты или поступления
-    
-    private let itemsPerRow: CGFloat = 3
-    private let minimumItemSpacing: CGFloat = 8
-    let sectionInsets = UIEdgeInsets(top: 16.0, left: 16.0, bottom: 20.0, right: 16.0)
-        
+
     override func viewDidLoad() {
-        super.viewDidLoad()
-        collectionView.dataSource = self
-        collectionView.delegate = self
+        super.viewDidLoad()       
         textDescribe.delegate = self
         btnDate.setTitle("Дата: \(Date().toString())", for: .normal)
     }
@@ -46,72 +40,21 @@ class AddSpendViewController: UIViewController {
         }
         calendar.show()
     }
+    
+    @IBAction func btnCategoryPressed(_ sender: Any) {
+        performSegue(withIdentifier:"SelectCategory", sender: nil)
+    }
+           
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if let vc=segue.destination as? SelectCategoryViewController, segue.identifier=="SelectCategory"{
+            //vc.listener=self
+            //vc.selectedColorName=labelSelectedColor.text!
+            //vc.selectedColor=labelSelectedColor.textColor
+        }
+    }
 }
 
-extension AddSpendViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
-//адаптер для отображения категорий в таблице
-    func collectionView(_ collectionView: UICollectionView,
-                       layout collectionViewLayout: UICollectionViewLayout,
-                       sizeForItemAt indexPath: IndexPath) -> CGSize {
-       let paddingSpace = sectionInsets.left + sectionInsets.right + minimumItemSpacing * (itemsPerRow - 1)
-       let availableWidth = collectionView.bounds.width - paddingSpace
-       let widthPerItem = availableWidth / itemsPerRow
-       return CGSize(width: widthPerItem, height: widthPerItem)
-    }
-
-    func collectionView(_ collectionView: UICollectionView,
-                       layout collectionViewLayout: UICollectionViewLayout,
-                       insetForSectionAt section: Int) -> UIEdgeInsets {
-       return sectionInsets
-    }
-
-    func collectionView(_ collectionView: UICollectionView,
-                       layout collectionViewLayout: UICollectionViewLayout,
-                       minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-       return 10
-    }
-
-    func collectionView(_ collectionView: UICollectionView,
-                       layout collectionViewLayout: UICollectionViewLayout,
-                       minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-       return minimumItemSpacing
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return CategoryCollection.Categories.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "CatCollectionCell", for: indexPath) as! CategoryCollectionViewCell
-        let category = CategoryCollection.Categories.getCategory(indexPath.row)
-        cell.labelName.text = category?.name
-        cell.iconImage.image = ImageCollection.imagesPub.getImage (category!.imagePath, createNew: true)
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //didSelectItem?(indexPath)
-        if let value = calculatorView.result, value != 0.0 {//все нормально, расход правильный
-            self.navigationController?.popViewController(animated: true)
-//            dismiss(animated: true, completion: nil)
-            return
-        }//иначе - мигаем лабелью, что типа неправильное значение расхода
-        calculatorView.BlinkLabelRed()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
-        cell?.backgroundColor = UIColor.lightGray
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
-        cell?.backgroundColor = UIColor.clear
-    }
-
-}
-
-extension AddSpendViewController: UITextFieldDelegate{
+extension AddSpendViewController: UITextFieldDelegate{//это для сокрытия клавиатуры по нажатию return
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

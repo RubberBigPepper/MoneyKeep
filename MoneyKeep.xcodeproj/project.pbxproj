@@ -23,6 +23,7 @@
 		50418D8324EBD0FF003EDD6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50418D8224EBD0FF003EDD6B /* Assets.xcassets */; };
 		50418D8624EBD0FF003EDD6B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50418D8424EBD0FF003EDD6B /* LaunchScreen.storyboard */; };
 		50500B1524FD401E00BE9132 /* ImageCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50500B1424FD401E00BE9132 /* ImageCollection.swift */; };
+		507BC8B125244ABA00C91358 /* SelectCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507BC8B025244ABA00C91358 /* SelectCategoryViewController.swift */; };
 		50A0B89824F91D4800DE5E23 /* CategoryCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0B89724F91D4800DE5E23 /* CategoryCollection.swift */; };
 		FBCD0EA8B0288554E62CD1D6 /* Pods_MoneyKeep.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BC49BB30AAE39B8DF13D603 /* Pods_MoneyKeep.framework */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,7 @@
 		50418D8524EBD0FF003EDD6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		50418D8724EBD0FF003EDD6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50500B1424FD401E00BE9132 /* ImageCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollection.swift; sourceTree = "<group>"; };
+		507BC8B025244ABA00C91358 /* SelectCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryViewController.swift; sourceTree = "<group>"; };
 		50A0B89724F91D4800DE5E23 /* CategoryCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollection.swift; sourceTree = "<group>"; };
 		9A134715B8F7A2FECF1B7EDC /* Pods-MoneyKeep.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyKeep.release.xcconfig"; path = "Target Support Files/Pods-MoneyKeep/Pods-MoneyKeep.release.xcconfig"; sourceTree = "<group>"; };
 		F954CA37774A6EA437ED5290 /* Pods-MoneyKeep.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyKeep.debug.xcconfig"; path = "Target Support Files/Pods-MoneyKeep/Pods-MoneyKeep.debug.xcconfig"; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				5005821E25024F990076927D /* AddSpendViewController.swift */,
 				502272562508B14C00914E9A /* ColorSet.swift */,
 				503B1C21251B614200EBBF2B /* CalculatorView.swift */,
+				507BC8B025244ABA00C91358 /* SelectCategoryViewController.swift */,
 			);
 			path = MoneyKeep;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				50A0B89824F91D4800DE5E23 /* CategoryCollection.swift in Sources */,
 				503B1C22251B614200EBBF2B /* CalculatorView.swift in Sources */,
 				5039B00D2523A33900875E24 /* DateExtension.swift in Sources */,
+				507BC8B125244ABA00C91358 /* SelectCategoryViewController.swift in Sources */,
 				50418D8124EBD0FE003EDD6B /* MoneyKeep.xcdatamodeld in Sources */,
 				50382C2524EE38E10085272D /* SpendCollection.swift in Sources */,
 			);
