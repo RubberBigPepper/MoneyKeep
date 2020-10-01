@@ -18,4 +18,10 @@ extension Date {
     public func toString()->String{//просто дата в виде отформатированной строки
         return toString("dd.MM.yyyy")
     }
+    
+    public static func fromString(_ string: String, _ format: String)->Date?{
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.date(from: string)
+    }
 }

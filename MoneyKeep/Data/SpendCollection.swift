@@ -13,6 +13,8 @@ import UIKit
 class SpendCollection{//тут будет полный список расходов
     private var spends: [SpendItem] = []//все расходы будем писать тут
     
+    public static let Spends  = SpendCollection() //реализуем синглтон
+    
     public var count: Int{//количество итемов
         return spends.count
     }

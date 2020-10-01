@@ -8,13 +8,19 @@
 
 import UIKit
 
-class SelectCategoryViewController: UIViewController {
-        
+protocol SelectCategoryDelegate {
+    func CategorySelected(_ category: SpendCategory)
+}
+
+class SelectCategoryViewController: UIViewController {//контроллер, ответственный за категории
+
     @IBOutlet weak var collectionView: UICollectionView!
-    
+
     private let itemsPerRow: CGFloat = 3
     private let minimumItemSpacing: CGFloat = 8
-    let sectionInsets = UIEdgeInsets(top: 16.0, left: 16.0, bottom: 20.0, right: 16.0)
+    private let sectionInsets = UIEdgeInsets(top: 16.0, left: 16.0, bottom: 20.0, right: 16.0)
+    
+    public var delegate: SelectCategoryDelegate? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,14 +83,10 @@ extension SelectCategoryViewController: UICollectionViewDelegateFlowLayout, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //didSelectItem?(indexPath)
-        self.dismiss(animated: true, completion: nil)
-    //    if let value = calculatorView.result, value != 0.0 {//все нормально, расход правильный
-  //          self.navigationController?.popViewController(animated: true)
-//            dismiss(animated: true, completion: nil)
-            return
-      //  }//иначе - мигаем лабелью, что типа неправильное значение расхода
-//        calculatorView.BlinkLabelRed()
+        if let category=CategoryCollection.Categories.getCategory(indexPath.row) {//паренту говорим, что категория выбрана
+            delegate?.CategorySelected(category)
+        }
+        self.dismiss(animated: true, completion: nil)//и закрываем окно
     }
     
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {

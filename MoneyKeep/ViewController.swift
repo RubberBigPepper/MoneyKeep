@@ -47,18 +47,18 @@ class ViewController: UIViewController {
     }
     
     private func showAddSpendIncomeDlg(_ income: Bool){//покажем диалог ввода траты или прихода денег
-        performSegue(withIdentifier:"AddSpendIncome", sender: nil)
+        performSegue(withIdentifier:"AddSpendIncome", sender: income)
     }
        
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        if let vc=segue.destination as? AddSpendViewController, segue.identifier=="AddSpendIncome"{
-            //vc.listener=self
-            //vc.selectedColorName=labelSelectedColor.text!
-            //vc.selectedColor=labelSelectedColor.textColor
+        if let vc=segue.destination as? AddSpendViewController, segue.identifier=="AddSpendIncome",
+           let income = sender as? Bool{
+            vc.isIncome = income
+            vc.delegate = self
         }
     }
     
-    func customizeChart(dataPoints: [String], values: [Double]) {
+    private func customizeChart(dataPoints: [String], values: [Double]) {
       
       // 1. Set ChartDataEntry
       var dataEntries: [ChartDataEntry] = []
@@ -81,3 +81,8 @@ class ViewController: UIViewController {
   
 }
 
+extension ViewController: AddSpendDone{
+    func SpendAdded(_ item: SpendItem) {
+        SpendCollection.Spends.addItem(item)
+    }
+}

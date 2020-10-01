@@ -9,6 +9,10 @@
 import UIKit
 import YYCalendar
 
+protocol AddSpendDone {//протокол добавления данных о расходе или доходе через форму
+    func SpendAdded(_ item: SpendItem)
+}
+
 class AddSpendViewController: UIViewController {
 
     @IBOutlet weak var btnDate: UIButton!
@@ -16,12 +20,19 @@ class AddSpendViewController: UIViewController {
     @IBOutlet weak var textDescribe: UITextField!
     @IBOutlet weak var btnCategory: UIButton!
     
-    public var isSpend = true//флаг запуска на траты или поступления
+    public var isIncome = true//флаг запуска на траты или поступления, нужен для фильрации категорий
+    public var delegate: AddSpendDone? = nil
+    
+    private var selectedDate: Date = Date(){
+        didSet{
+            btnDate.setTitle("Дата: \(selectedDate.toString())", for: .normal)
+        }
+    }
+    private let fmtDate = "dd.MM.yyyy"
 
     override func viewDidLoad() {
         super.viewDidLoad()       
         textDescribe.delegate = self
-        btnDate.setTitle("Дата: \(Date().toString())", for: .normal)
         calculatorView.delegate = self
         btnCategory.isEnabled = false
     }
@@ -36,9 +47,11 @@ class AddSpendViewController: UIViewController {
     }
     
     @IBAction func btnDatePressed(_ sender: UIButton) {
-        let calendar = YYCalendar(limitedCalendarLangType: .ENG, date: Date().toString(), minDate: nil, maxDate: Date().toString(), format: "dd.MM.yyyy") {
+        let calendar = YYCalendar(limitedCalendarLangType: .ENG, date: Date().toString(), minDate: nil, maxDate: Date().toString(), format: fmtDate) {
             date in
-            self.btnDate.setTitle("Дата: \(date)", for: .normal)
+            if let dateClr = Date.fromString(date, self.fmtDate) {
+                self.selectedDate = dateClr
+            }
         }
         calendar.show()
     }
@@ -49,9 +62,7 @@ class AddSpendViewController: UIViewController {
            
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if let vc=segue.destination as? SelectCategoryViewController, segue.identifier=="SelectCategory"{
-            //vc.listener=self
-            //vc.selectedColorName=labelSelectedColor.text!
-            //vc.selectedColor=labelSelectedColor.textColor
+            vc.delegate = self
         }
     }
 }
@@ -66,5 +77,15 @@ extension AddSpendViewController: UITextFieldDelegate{//это для сокры
 extension AddSpendViewController: CalculatorViewResult{//
     func resultChanged(_ result: Double?) {
         btnCategory.isEnabled = (result != nil) && (result! > 0.0)
+    }
+}
+
+extension AddSpendViewController: SelectCategoryDelegate{
+    func CategorySelected(_ category: SpendCategory) {//сформируем SpendItem (то есть затраты)
+        if let amount = calculatorView.result, let text = textDescribe.text {
+            let item = SpendItem(category: category, amount: Float(amount), date: selectedDate, text: text)
+            self.delegate?.SpendAdded(item)
+            dismiss(animated: true, completion: nil)
+        }
     }
 }
