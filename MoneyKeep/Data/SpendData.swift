@@ -12,10 +12,27 @@ class  SpendData{//этот класс будет все данные о рас�
 
     public static let Data = SpendData()//синглтон данных о тратах и категориях
     
-    public let Categories  = CategoryCollection() //категории трат
+    public let Categories: CategoryCollection
     public let Spends: SpendCollection
 
     private init(){
-        Spends=SpendCollection(Categories);
+        Categories = CategoryCollection()
+        Spends = SpendCollection(Categories)
+    }
+
+    public func getSpends(from: Date, to: Date, what: SpendType)->[Int: Float]{//затраты за период. Сперва ID категории, потом затраты
+        var res: [Int:Float] = [:]
+        for n in 0..<Categories.count{
+            if let cat = Categories.getCategory(n) {
+                res[cat.ID] = 0
+            }
+        }
+
+        return res //пока заглушка
+    }
+
+    public func saveDataToCore(){//сохранение данных в кордату
+        Categories.SaveToCoredata()
+        Spends.SaveToCoredata()
     }
 }

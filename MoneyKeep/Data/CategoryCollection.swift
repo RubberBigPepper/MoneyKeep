@@ -18,7 +18,7 @@ class CategoryCollection{
             return categories.count
         }
     }
-    
+
     private var __id: Int = 0
     
     private func nextID()->Int{
