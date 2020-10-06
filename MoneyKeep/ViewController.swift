@@ -83,6 +83,7 @@ class ViewController: UIViewController {
 
 extension ViewController: AddSpendDone{
     func SpendAdded(_ item: SpendItem) {
-        SpendCollection.Spends.addItem(item)
+        SpendData.Data.Spends.addItem(item)
+//        SpendCollection.Spends.addItem(item)
     }
 }

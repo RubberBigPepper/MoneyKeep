@@ -12,14 +12,14 @@ import UIKit
 	
 class SpendCollection{//тут будет полный список расходов
     private var spends: [SpendItem] = []//все расходы будем писать тут
-    
-    public static let Spends  = SpendCollection() //реализуем синглтон
+    private let categories: CategoryCollection;
     
     public var count: Int{//количество итемов
         return spends.count
     }
     
-    init() {//конструктор, получим данные из CoreData
+    public init(_ categories: CategoryCollection) {//конструктор, получим данные из CoreData
+        self.categories=categories
         ReadFromCoredata()
     }
     
@@ -52,11 +52,11 @@ class SpendCollection{//тут будет полный список расход
             item.setValue(spendItem.text, forKey: "text")
             item.setValue(spendItem.category.ID, forKey: "cat_id")
         }
-        CategoryCollection.Categories.SaveToCoredata()
+        categories.SaveToCoredata()
     }
     
     public func ReadFromCoredata(){
-        CategoryCollection.Categories.ReadFromCoredata()
+        categories.ReadFromCoredata()
         let managedContext = AppDelegate.managedContext
         spends.removeAll()
         
@@ -66,7 +66,7 @@ class SpendCollection{//тут будет полный список расход
         if let results = fetchedResults {//читаем по одному итемы
             for result in results{
                 let catID = result.value(forKey: "cat_id") as! Int
-                let category = CategoryCollection.Categories.FindCategory(catID) ?? SpendCategory() //сопоставляем класс категории трат
+                let category = categories.FindCategory(catID) ?? SpendCategory() //сопоставляем класс категории трат
                 let spendItem = SpendItem(category: category,
                                           amount: result.value(forKey: "amount") as! Float,
                                           date: result.value(forKey: "date") as! Date,

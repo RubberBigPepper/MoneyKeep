@@ -29,4 +29,6 @@ class SpendCategory{//категория расходов
         self.ID=0
         self.type = .outcome
     }
+    
+
 }

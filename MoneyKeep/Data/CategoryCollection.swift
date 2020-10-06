@@ -11,8 +11,6 @@ import CoreData
 import UIKit
 
 class CategoryCollection{
-    public static let Categories  = CategoryCollection() //реализуем синглтон
-
     private var categories: [SpendCategory] = []//все категории расходов будут тут
     
     public var count: Int{//количество категорий
@@ -28,7 +26,29 @@ class CategoryCollection{
         return __id
     }
     
-    private init(){
+    private func getCategories(_ type: SpendType) -> [SpendCategory]{
+        var res: [SpendCategory]=[]
+        for cat in categories{
+            if cat.type == type {
+                res.append(cat)
+            }
+        }
+        return res
+    }
+    
+    public var incomeCat:[SpendCategory]{
+        get{
+            return getCategories(.income)
+        }
+    }
+    
+    public var outcomeCat:[SpendCategory]{
+        get{
+            return getCategories(.outcome)
+        }
+    }
+    
+    public init(){
         ReadFromCoredata()
         if count == 0 {//ничего не прочитано, поэтому сгенерируем новые
             addCategory(SpendCategory(imagePath: "beauty", name: "Гигиена", ID: nextID(), type: .outcome))

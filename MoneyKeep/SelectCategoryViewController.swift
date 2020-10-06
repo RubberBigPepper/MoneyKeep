@@ -71,19 +71,20 @@ extension SelectCategoryViewController: UICollectionViewDelegateFlowLayout, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return CategoryCollection.Categories.count
+        return SpendData.Data.Categories.count
+//            CategoryCollection.Categories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "CatCollectionCell", for: indexPath) as! CategoryCollectionViewCell
-        let category = CategoryCollection.Categories.getCategory(indexPath.row)
+        let category = SpendData.Data.Categories.getCategory(indexPath.row)
         cell.labelName.text = category?.name
         cell.iconImage.image = ImageCollection.imagesPub.getImage (category!.imagePath, createNew: true)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let category=CategoryCollection.Categories.getCategory(indexPath.row) {//паренту говорим, что категория выбрана
+        if let category=SpendData.Data.Categories.getCategory(indexPath.row) {//паренту говорим, что категория выбрана
             delegate?.CategorySelected(category)
         }
         self.dismiss(animated: true, completion: nil)//и закрываем окно
