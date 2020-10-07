@@ -10,12 +10,16 @@ import Foundation
 import CoreData
 import UIKit
 	
-class SpendCollection{//тут будет полный список расходов
+class SpendCollection: Sequence{//тут будет полный список расходов
     private var spends: [SpendItem] = []//все расходы будем писать тут
     private let categories: CategoryCollection;
     
     public var count: Int{//количество итемов
         return spends.count
+    }
+    
+    func makeIterator() -> SpendIterator {
+        return SpendIterator(spends)
     }
     
     public init(_ categories: CategoryCollection) {//конструктор, получим данные из CoreData
@@ -66,7 +70,7 @@ class SpendCollection{//тут будет полный список расход
         if let results = fetchedResults {//читаем по одному итемы
             for result in results{
                 let catID = result.value(forKey: "cat_id") as! Int
-                let category = categories.FindCategory(catID) ?? SpendCategory() //сопоставляем класс категории трат
+                let category = categories.findCategory(catID) ?? SpendCategory() //сопоставляем класс категории трат
                 let spendItem = SpendItem(category: category,
                                           amount: result.value(forKey: "amount") as! Float,
                                           date: result.value(forKey: "date") as! Date,
@@ -90,3 +94,22 @@ class SpendCollection{//тут будет полный список расход
         }
     }
 }
+
+struct SpendIterator: IteratorProtocol {//имплементация протокола итератора
+    private var items: [SpendItem]
+    private var index = 0
+
+    init(_ spends:[SpendItem]) {
+        self.items = spends
+    }
+
+    mutating func next() -> SpendItem? {
+        var res: SpendItem? = nil
+        if index<items.count{
+            res=items[index]
+            index+=1
+        }
+        return res
+    }
+}
+

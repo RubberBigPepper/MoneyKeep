@@ -24,4 +24,16 @@ extension Date {
         formatter.dateFormat = format
         return formatter.date(from: string)
     }
+    
+    public static func from(_ year: Int, _ month: Int, _ day: Int) -> Date?
+    {
+        let gregorianCalendar = Calendar(identifier: .gregorian)
+        let dateComponents = DateComponents(calendar: gregorianCalendar, year: year, month: month, day: day)
+        return gregorianCalendar.date(from: dateComponents)
+    }
+    
+    public func getComponent(_ component: Calendar.Component)->Int{
+        let calendar = Calendar.current
+        return calendar.component(component, from: self)
+    }
 }

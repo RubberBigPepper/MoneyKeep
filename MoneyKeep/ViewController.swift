@@ -18,11 +18,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         prepareCircleBtn(incomeBtn)
-         prepareCircleBtn(spendBtn)
-        let players = ["Ozil", "Ramsey", "Laca", "Auba", "Xhaka", "Torreira"]
-        let goals = [6, 8, 26, 30, 8, 10]
-        customizeChart(dataPoints: players, values: goals.map{ Double($0) })
+        prepareCircleBtn(incomeBtn)
+        prepareCircleBtn(spendBtn)
+//        let players = ["Ozil", "Ramsey", "Laca", "Auba", "Xhaka", "Torreira"]
+//        let goals = [6, 8, 26, 30, 8, 10]
+//        customizeChart(dataPoints: players, values: goals.map{ Double($0) })
+        updateChart()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -31,11 +32,10 @@ class ViewController: UIViewController {
     }
     
     
-    private func prepareCircleBtn(_ btn: UIButton){
+    private func prepareCircleBtn(_ btn: UIButton){//делаем кнопки круглыми
         btn.layer.cornerRadius = max(btn.bounds.width, btn.bounds.height)*0.5
         btn.layer.borderWidth = 3
         btn.layer.borderColor = btn.currentTitleColor.cgColor
-        //showAddSpendIncomeDlg(false)
     }
 
     @IBAction func incomePressed(_ sender: Any) {
@@ -58,12 +58,20 @@ class ViewController: UIViewController {
         }
     }
     
-    private func customizeChart(dataPoints: [String], values: [Double]) {
-      
+    private func updateChart(){//обновление чарта за последний месяц
+        let date = Date()
+        let from = Date.from(date.getComponent(.year),date.getComponent(.month), 1)
+        let data = SpendData.Data.getSpends(from: from!, to: date, type: .outcome)
+        updateChart(data)
+    }
+
+    private func updateChart(_ data: [Int: Float]) {//обновление данных чарта
       // 1. Set ChartDataEntry
       var dataEntries: [ChartDataEntry] = []
-      for i in 0..<dataPoints.count {
-        let dataEntry = PieChartDataEntry(value: values[i], label: dataPoints[i], data: dataPoints[i] as AnyObject)
+      for spendData in data {
+        let cat = SpendData.Data.Categories.findCategory(spendData.key)
+        if cat == nil || spendData.value == 0 { continue }
+        let dataEntry = PieChartDataEntry(value: Double(spendData.value), label: cat?.name, data: spendData as AnyObject)
         dataEntries.append(dataEntry)
       }
       // 2. Set ChartDataSet
@@ -77,13 +85,14 @@ class ViewController: UIViewController {
       pieChartData.setValueFormatter(formatter)
       // 4. Assign it to the chart’s data
       chartView.data = pieChartData
-    }    
-  
+    }
+
 }
 
 extension ViewController: AddSpendDone{
     func SpendAdded(_ item: SpendItem) {
         SpendData.Data.Spends.addItem(item)
+        updateChart()
 //        SpendCollection.Spends.addItem(item)
     }
 }

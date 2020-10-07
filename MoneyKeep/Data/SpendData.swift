@@ -18,4 +18,18 @@ class  SpendData{//этот класс будет все данные о рас�
     private init(){
         Spends=SpendCollection(Categories);
     }
+    
+    public func getSpends(from: Date, to: Date, type: SpendType)->[Int: Float]{//затраты за период по категориям
+        var res: [Int: Float] = [:]
+        for cat in Categories{
+            res[cat.ID] = 0
+        }
+        for spend in Spends{
+            if spend.date<from || spend.category.type != type { continue }
+            if spend.date>to { break }//у нас отсортированная коллекция, потому пропускаем
+            res[spend.category.ID]? += spend.amount
+        }
+        return res
+    }
+    
 }
