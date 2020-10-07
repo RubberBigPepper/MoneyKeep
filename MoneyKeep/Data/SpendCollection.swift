@@ -27,9 +27,6 @@ class SpendCollection: Sequence{//тут будет полный список р
         ReadFromCoredata()
     }
     
-    deinit {//а тут сохраним в CoreData
-        SaveToCoredata()
-    }
     
     public func addItem(_ item: SpendItem){//добавление расхода в коллекцию
         spends.append(item)

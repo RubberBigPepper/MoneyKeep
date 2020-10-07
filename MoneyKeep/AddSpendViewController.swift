@@ -39,7 +39,7 @@ class AddSpendViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        selectedDate = Date()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -85,6 +85,7 @@ extension AddSpendViewController: SelectCategoryDelegate{
         if let amount = calculatorView.result, let text = textDescribe.text {
             let item = SpendItem(category: category, amount: Float(amount), date: selectedDate, text: text)
             self.delegate?.SpendAdded(item)
+            self.navigationController?.popViewController(animated: true)
             dismiss(animated: true, completion: nil)
         }
     }

@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        
+        SpendData.Data.saveDataToCore()
     }
     
     
