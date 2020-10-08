@@ -36,4 +36,14 @@ extension Date {
         let calendar = Calendar.current
         return calendar.component(component, from: self)
     }
+    
+    public func toMonthYear()->Int {//дату в число
+        return self.getComponent(.year) * 12 + self.getComponent(.month)
+    }
+    
+    public static func fromMonthYear(_ monthYear: Int,_ day: Int = 1)-> Date?{//число даты В дату
+        let year = monthYear / 12
+        let month = monthYear % 12
+        return Date.from(year, month, day)
+    }
 }

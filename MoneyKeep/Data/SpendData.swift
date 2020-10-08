@@ -14,6 +14,24 @@ class  SpendData{//этот класс будет все данные о рас�
     
     public let Categories: CategoryCollection
     public let Spends: SpendCollection
+    
+    public var firstDate: Date {//это не свиданка, это первая дата в расходах
+        get{
+            if let res=Spends.getItem(0)?.date {//надо тут как то покороче написать
+                return res
+            }
+            return Date()
+        }
+    }
+    
+    public var endDate: Date {//это конечная дата в расходах
+        get{
+            if let res=Spends.getItem(Spends.count-1)?.date {//надо тут как то покороче написать
+                return res
+            }
+            return Date()
+        }
+    }
 
     private init(){
         Categories = CategoryCollection()
