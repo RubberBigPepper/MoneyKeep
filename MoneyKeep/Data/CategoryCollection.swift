@@ -166,7 +166,8 @@ class CategoryCollection: Sequence{
 
         if let results = fetchedResults {
             for result in results{
-                result.prepareForDeletion()
+//                result.prepareForDeletion()
+                managedContext.delete(result)
             }
         }
         AppDelegate.saveContext()

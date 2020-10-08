@@ -27,12 +27,15 @@ class SpendCollection: Sequence{//тут будет полный список р
         ReadFromCoredata()
     }
     
-    
-    public func addItem(_ item: SpendItem){//добавление расхода в коллекцию
-        spends.append(item)
+    private func resortSpends(){
         spends.sort { (a: SpendItem, b: SpendItem) -> Bool in //сразу отсортируем коллекцию по возрастанию
             return a.date < b.date
         }
+    }
+    
+    public func addItem(_ item: SpendItem){//добавление расхода в коллекцию
+        spends.append(item)
+        resortSpends()
     }
     
     public func getItem(_ at: Int)->SpendItem?{//доступ к расходу по индексу
@@ -75,6 +78,7 @@ class SpendCollection: Sequence{//тут будет полный список р
                 spends.append(spendItem)
             }
          }
+        resortSpends()
     }
     
     private func ClearCoredata(){
@@ -86,7 +90,9 @@ class SpendCollection: Sequence{//тут будет полный список р
 
         if let results = fetchedResults {
             for result in results{
-                result.prepareForDeletion()
+//                result.prepareForDeletion()
+//                try! result.validateForDelete()
+                managedContext.delete(result)
             }
         }
     }

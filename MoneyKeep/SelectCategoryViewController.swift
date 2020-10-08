@@ -21,11 +21,20 @@ class SelectCategoryViewController: UIViewController {//контроллер, о
     private let sectionInsets = UIEdgeInsets(top: 16.0, left: 16.0, bottom: 20.0, right: 16.0)
     
     public var delegate: SelectCategoryDelegate? = nil
+    public var isIncome = true//флаг запуска на траты или поступления, нужен для фильрации категорий
+    
+    private var categories: [SpendCategory] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-          collectionView.dataSource = self
-          collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if isIncome { categories = SpendData.Data.Categories.incomeCat }
+        else { categories = SpendData.Data.Categories.outcomeCat}
     }
     
 
@@ -71,22 +80,20 @@ extension SelectCategoryViewController: UICollectionViewDelegateFlowLayout, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return SpendData.Data.Categories.count
-//            CategoryCollection.Categories.count
+        return categories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "CatCollectionCell", for: indexPath) as! CategoryCollectionViewCell
-        let category = SpendData.Data.Categories.getCategory(indexPath.row)
-        cell.labelName.text = category?.name
-        cell.iconImage.image = ImageCollection.imagesPub.getImage (category!.imagePath, createNew: true)
+        let category = categories[indexPath.row]
+        cell.labelName.text = category.name
+        cell.iconImage.image = ImageCollection.imagesPub.getImage (category.imagePath, createNew: true)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let category=SpendData.Data.Categories.getCategory(indexPath.row) {//паренту говорим, что категория выбрана
-            delegate?.CategorySelected(category)
-        }
+        let category = categories[indexPath.row] //паренту говорим, что категория выбрана
+        delegate?.CategorySelected(category)
         self.dismiss(animated: true, completion: nil)//и закрываем окно
     }
     

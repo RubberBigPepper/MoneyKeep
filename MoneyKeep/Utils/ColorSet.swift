@@ -78,7 +78,8 @@ class ColorSet{//класс выполняет роль хранилища и г
 
         if let results = fetchedResults {
             for result in results{
-                result.prepareForDeletion()
+//                result.prepareForDeletion()
+                managedContext.delete(result)
             }
         }
     }

@@ -13,6 +13,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var incomeBtn: UIButton!//кнопка дохода
     @IBOutlet weak var spendBtn: UIButton!//кнопка расхода
+    @IBOutlet weak var segmentType: UISegmentedControl!
     
     @IBOutlet weak var chartView: PieChartView!
     
@@ -20,15 +21,28 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         prepareCircleBtn(incomeBtn)
         prepareCircleBtn(spendBtn)
+        segmentType.selectedSegmentIndex = 0
 //        let players = ["Ozil", "Ramsey", "Laca", "Auba", "Xhaka", "Torreira"]
 //        let goals = [6, 8, 26, 30, 8, 10]
 //        customizeChart(dataPoints: players, values: goals.map{ Double($0) })
         updateChart()
+        NotificationCenter.default.addObserver(self,//Небольшой костыль-сохранение по сворачиванию
+                                               selector: #selector(sceneWillResignActiveNotification(_:)),
+                                               name: UIApplication.willResignActiveNotification,
+                                               object: nil)
+    }
+
+    @objc func sceneWillResignActiveNotification(_ notification: NSNotification) {
+        SpendData.Data.saveDataToCore()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        SpendData.Data.saveDataToCore()
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+//        SpendData.Data.saveDataToCore()
+    }
+    
+    @IBAction func segmentChanged(_ sender: Any) {
+        updateChart()
     }
     
     
@@ -61,7 +75,7 @@ class ViewController: UIViewController {
     private func updateChart(){//обновление чарта за последний месяц
         let date = Date()
         let from = Date.from(date.getComponent(.year),date.getComponent(.month), 1)
-        let data = SpendData.Data.getSpends(from: from!, to: date, type: .outcome)
+        let data = SpendData.Data.getSpends(from: from!, to: date, type: segmentType.selectedSegmentIndex == 0 ? .outcome: .income)
         updateChart(data)
     }
 

@@ -61,26 +61,40 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qls-Al-5N0" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="20" y="200.5" width="374" height="495"/>
+                                <rect key="frame" x="20" y="127" width="374" height="647"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rdL-lP-5OT">
+                                <rect key="frame" x="20" y="88" width="374" height="32"/>
+                                <segments>
+                                    <segment title="Расходы"/>
+                                    <segment title="Доходы"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="is5-He-DZT"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Qls-Al-5N0" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.552455" id="Pfg-6j-6Vr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rdL-lP-5OT" secondAttribute="trailing" constant="20" id="2I2-3b-hqL"/>
+                            <constraint firstItem="Qls-Al-5N0" firstAttribute="top" secondItem="rdL-lP-5OT" secondAttribute="bottom" constant="8" symbolic="YES" id="3wv-cK-Qkd"/>
                             <constraint firstItem="TyQ-Ir-ppO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="QO8-Cl-r6W"/>
-                            <constraint firstItem="Qls-Al-5N0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="RFl-0R-wAG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Qls-Al-5N0" secondAttribute="trailing" constant="20" id="SSx-Of-AIR"/>
                             <constraint firstItem="Qls-Al-5N0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="b2h-xS-0pD"/>
                             <constraint firstAttribute="trailing" secondItem="TyQ-Ir-ppO" secondAttribute="trailing" constant="20" id="cyQ-Ci-C1S"/>
                             <constraint firstItem="TyQ-Ir-ppO" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="jRc-l3-C8Q"/>
+                            <constraint firstItem="rdL-lP-5OT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="nBt-hz-EzZ"/>
+                            <constraint firstItem="rdL-lP-5OT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="wUW-i1-O3K"/>
+                            <constraint firstItem="TyQ-Ir-ppO" firstAttribute="top" secondItem="Qls-Al-5N0" secondAttribute="bottom" constant="8" symbolic="YES" id="wUf-h6-l2r"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6Qh-nN-1Qs"/>
                     <connections>
                         <outlet property="chartView" destination="Qls-Al-5N0" id="HAJ-6d-Zpq"/>
                         <outlet property="incomeBtn" destination="6ft-ML-R1S" id="nJO-St-3Qi"/>
+                        <outlet property="segmentType" destination="rdL-lP-5OT" id="des-Le-29h"/>
                         <outlet property="spendBtn" destination="pgY-w5-LhR" id="TOH-1Y-kCX"/>
                         <segue destination="80y-sc-mBS" kind="show" identifier="AddSpendIncome" id="RiL-rT-H8K"/>
                     </connections>

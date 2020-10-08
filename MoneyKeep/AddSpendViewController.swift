@@ -63,6 +63,7 @@ class AddSpendViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if let vc=segue.destination as? SelectCategoryViewController, segue.identifier=="SelectCategory"{
             vc.delegate = self
+            vc.isIncome = self.isIncome
         }
     }
 }
