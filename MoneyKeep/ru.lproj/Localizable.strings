@@ -1,0 +1,36 @@
+/* 
+  Localizable.strings
+  MoneyKeep
+
+  Created by Albert on 09.10.2020.
+  Copyright © 2020 Albert. All rights reserved.
+*/
+
+"beauty" = "Красота";
+"food" = "Еда";
+"house" = "Жилье";
+"medicine" = "Здоровье";
+"clothes" = "Одежда";
+"cafe" = "Кафе";
+"fuel_station" = "Машина";
+"hobby" = "Хобби";
+"gift" = "Подарки";
+"entertainment" = "Развлечения";
+"service" = "Связь";
+"sport" = "Спорт";
+"bill" = "Счета";
+"car" = "Такси";
+"transport" = "Транспорт";
+
+"safe" = "Депозит";
+"money" = "Зарплата";
+"passive_income" = "Дивиденды";
+"tag" = "Гонорар";
+"miscellaneous" = "Прочие доходы";
+
+"auto_generated" = "Демо режим - автомат";
+
+"demo_mode" = "Включить демо режим?";
+"demo_mode_prompt" = "В демо режиме будут сгенерированы расходы и доходы по разным категориям за последние 6 месяцев.";
+"yes" = "Да";
+"no" = "Нет";

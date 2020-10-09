@@ -28,7 +28,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <inset key="titleEdgeInsets" minX="0.0" minY="-11" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="рвсход">
+                                        <state key="normal" title="spend">
                                             <color key="titleColor" systemColor="systemRedColor"/>
                                         </state>
                                         <connections>
@@ -48,7 +48,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <inset key="titleEdgeInsets" minX="0.0" minY="-9" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="доход">
+                                        <state key="normal" title="income">
                                             <color key="titleColor" systemColor="systemGreenColor"/>
                                         </state>
                                         <connections>
@@ -61,27 +61,37 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qls-Al-5N0" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="20" y="127" width="374" height="647"/>
+                                <rect key="frame" x="20" y="165" width="374" height="609"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rdL-lP-5OT">
                                 <rect key="frame" x="20" y="88" width="374" height="32"/>
                                 <segments>
-                                    <segment title="Расходы"/>
-                                    <segment title="Доходы"/>
+                                    <segment title="Spends"/>
+                                    <segment title="Incomes"/>
                                 </segments>
                                 <connections>
                                     <action selector="segmentChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="is5-He-DZT"/>
                                 </connections>
                             </segmentedControl>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6LW-o6-FVJ">
+                                <rect key="frame" x="20" y="127" width="374" height="30"/>
+                                <state key="normal" title="Turn off demo mode"/>
+                                <connections>
+                                    <action selector="demoOffPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UlB-dG-nTm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rdL-lP-5OT" secondAttribute="trailing" constant="20" id="2I2-3b-hqL"/>
-                            <constraint firstItem="Qls-Al-5N0" firstAttribute="top" secondItem="rdL-lP-5OT" secondAttribute="bottom" constant="8" symbolic="YES" id="3wv-cK-Qkd"/>
+                            <constraint firstItem="6LW-o6-FVJ" firstAttribute="top" secondItem="rdL-lP-5OT" secondAttribute="bottom" constant="8" symbolic="YES" id="Ah2-G9-qN4"/>
+                            <constraint firstItem="Qls-Al-5N0" firstAttribute="top" secondItem="6LW-o6-FVJ" secondAttribute="bottom" constant="8" symbolic="YES" id="Ofh-xA-vVZ"/>
                             <constraint firstItem="TyQ-Ir-ppO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="QO8-Cl-r6W"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Qls-Al-5N0" secondAttribute="trailing" constant="20" id="SSx-Of-AIR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6LW-o6-FVJ" secondAttribute="trailing" constant="20" id="XAt-XU-HRN"/>
+                            <constraint firstItem="6LW-o6-FVJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="axV-h0-4KN"/>
                             <constraint firstItem="Qls-Al-5N0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="b2h-xS-0pD"/>
                             <constraint firstAttribute="trailing" secondItem="TyQ-Ir-ppO" secondAttribute="trailing" constant="20" id="cyQ-Ci-C1S"/>
                             <constraint firstItem="TyQ-Ir-ppO" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="jRc-l3-C8Q"/>
@@ -93,6 +103,7 @@
                     <navigationItem key="navigationItem" id="6Qh-nN-1Qs"/>
                     <connections>
                         <outlet property="chartView" destination="Qls-Al-5N0" id="HAJ-6d-Zpq"/>
+                        <outlet property="demoOffBtn" destination="6LW-o6-FVJ" id="3F2-Nu-ebg"/>
                         <outlet property="incomeBtn" destination="6ft-ML-R1S" id="nJO-St-3Qi"/>
                         <outlet property="segmentType" destination="rdL-lP-5OT" id="des-Le-29h"/>
                         <outlet property="spendBtn" destination="pgY-w5-LhR" id="TOH-1Y-kCX"/>
@@ -117,7 +128,7 @@
                                     <constraint firstAttribute="height" constant="60" id="C29-KC-XA2"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Дата: ">
+                                <state key="normal" title="Date:  ">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
                                 <variation key="heightClass=compact-widthClass=compact">
@@ -127,7 +138,7 @@
                                     <action selector="btnDatePressed:" destination="80y-sc-mBS" eventType="touchUpInside" id="Dca-Hb-0c3"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Заметка" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ECu-KD-nWA">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Note" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ECu-KD-nWA">
                                 <rect key="frame" x="20" y="156" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -142,7 +153,7 @@
                                     <constraint firstAttribute="height" constant="60" id="geD-kf-Ovh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Выбрать категорию"/>
+                                <state key="normal" title="Choose category"/>
                                 <connections>
                                     <action selector="btnCategoryPressed:" destination="80y-sc-mBS" eventType="touchUpInside" id="r3V-pk-NAs"/>
                                     <segue destination="ubh-cO-avB" kind="popoverPresentation" identifier="SelectCategory" popoverAnchorView="Svp-xL-JHf" id="eKC-bd-juj">
@@ -171,7 +182,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="BiC-kH-Dpe">
                         <nil key="title"/>
-                        <barButtonItem key="backBarButtonItem" title="Отмена" id="Xxi-ZS-nDH"/>
+                        <barButtonItem key="backBarButtonItem" title="Cancel" id="Xxi-ZS-nDH"/>
                     </navigationItem>
                     <connections>
                         <outlet property="btnCategory" destination="Svp-xL-JHf" id="YiC-QH-gK0"/>
@@ -185,10 +196,10 @@
             </objects>
             <point key="canvasLocation" x="7779.7101449275369" y="138.61607142857142"/>
         </scene>
-        <!--Выберите категорию-->
+        <!--Choose category-->
         <scene sceneID="itB-0S-dsO">
             <objects>
-                <viewController title="Выберите категорию" id="ubh-cO-avB" customClass="SelectCategoryViewController" customModule="MoneyKeep" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Choose category" id="ubh-cO-avB" customClass="SelectCategoryViewController" customModule="MoneyKeep" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7dm-Or-P7d">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

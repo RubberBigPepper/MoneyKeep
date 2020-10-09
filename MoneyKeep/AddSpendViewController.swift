@@ -23,15 +23,17 @@ class AddSpendViewController: UIViewController {
     public var isIncome = true//флаг запуска на траты или поступления, нужен для фильрации категорий
     public var delegate: AddSpendDone? = nil
     
+    private var dateStr = "Date: "
     private var selectedDate: Date = Date(){
         didSet{
-            btnDate.setTitle("Дата: \(selectedDate.toString())", for: .normal)
+            btnDate.setTitle("\(dateStr) \(selectedDate.toString())", for: .normal)
         }
     }
     private let fmtDate = "dd.MM.yyyy"
 
     override func viewDidLoad() {
-        super.viewDidLoad()       
+        super.viewDidLoad()
+        dateStr=btnDate.title(for: .normal)!
         textDescribe.delegate = self
         calculatorView.delegate = self
         btnCategory.isEnabled = false
@@ -85,9 +87,9 @@ extension AddSpendViewController: SelectCategoryDelegate{
     func CategorySelected(_ category: SpendCategory) {//сформируем SpendItem (то есть затраты)
         if let amount = calculatorView.result, let text = textDescribe.text {
             let item = SpendItem(category: category, amount: Float(amount), date: selectedDate, text: text)
-            self.delegate?.SpendAdded(item)
-            self.navigationController?.popViewController(animated: true)
-            dismiss(animated: true, completion: nil)
+            self.delegate?.SpendAdded(item)//отправим родителю результат
+            self.navigationController?.popViewController(animated: true)//перейдем на главное окно
+            dismiss(animated: true, completion: nil)//закроем контроллер, вохможно это даже не обязательно
         }
     }
 }

@@ -58,6 +58,33 @@ class CalculatorView: UIView {
     override func layoutSubviews() {
         setupNumberPad()
         resultLabel.addObserver(self, forKeyPath: "text", options: [.old, .new], context: nil)
+
+        let tap = UITapGestureRecognizer(target: self, action: #selector(onTapResultLabel))
+        resultLabel.isUserInteractionEnabled = true
+        resultLabel.addGestureRecognizer(tap)
+    }
+
+    private func getAllBtns()->[UIButton]{//возьмем все баттоны
+        var res: [UIButton] = []
+        for view in subviews{
+            if view is UIButton {
+                res.append(view as! UIButton)
+            }
+        }
+        return res
+    }
+    
+    @objc func onTapResultLabel(sender:UITapGestureRecognizer) {//юзер нажал лабель - покажем ему анимацией, что нужно тыкать цифровые кнопки
+        let btns = getAllBtns()
+        UIView.animate(withDuration: 5, animations: {
+            for btn in btns{
+                btn.setTitleColor(self.colorHighlighted, for: .normal)
+            }
+        }, completion: { complected in
+            for btn in btns{
+                btn.setTitleColor(self.colorTextCell, for: .normal)
+            }
+        })
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -244,7 +271,8 @@ extension UIButton {
         return image
     }
 
-    func setBackgroundColor(_ color: UIColor, for state: UIControl.State) {
+    public func setBackgroundColor(_ color: UIColor, for state: UIControl.State) {
         self.setBackgroundImage(imageWithColor(color: color), for: state)
     }
+    
 }

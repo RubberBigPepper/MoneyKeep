@@ -1,33 +1,33 @@
 
 /* Class = "UILabel"; text = "Add spend or income"; ObjectID = "55m-p1-RwR"; */
-"55m-p1-RwR.text" = "Добавьте расход или доход";
+"55m-p1-RwR.text" = "Add spend or income";
 
 /* Class = "UIButton"; normalTitle = "income"; ObjectID = "6ft-ML-R1S"; */
-"6ft-ML-R1S.normalTitle" = "доход";
+"6ft-ML-R1S.normalTitle" = "income";
 
 /* Class = "UITextField"; placeholder = "Note"; ObjectID = "ECu-KD-nWA"; */
-"ECu-KD-nWA.placeholder" = "Заметка";
+"ECu-KD-nWA.placeholder" = "Note";
 
 /* Class = "UIButton"; normalTitle = "Choose category"; ObjectID = "Svp-xL-JHf"; */
-"Svp-xL-JHf.normalTitle" = "Выберите категорию";
+"Svp-xL-JHf.normalTitle" = "Choose category";
 
 /* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "Xxi-ZS-nDH"; */
-"Xxi-ZS-nDH.title" = "Отмена";
+"Xxi-ZS-nDH.title" = "Cancel";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "fqW-Ca-555"; */
 "fqW-Ca-555.text" = "Label";
 
 /* Class = "UIButton"; normalTitle = "Date:  "; ObjectID = "mrF-FE-FNM"; */
-"mrF-FE-FNM.normalTitle" = "Дата:  ";
+"mrF-FE-FNM.normalTitle" = "Date:  ";
 
 /* Class = "UIButton"; normalTitle = "spend"; ObjectID = "pgY-w5-LhR"; */
-"pgY-w5-LhR.normalTitle" = "расход";
+"pgY-w5-LhR.normalTitle" = "spend";
 
 /* Class = "UISegmentedControl"; rdL-lP-5OT.segmentTitles[0] = "Spends"; ObjectID = "rdL-lP-5OT"; */
-"rdL-lP-5OT.segmentTitles[0]" = "Расходы";
+"rdL-lP-5OT.segmentTitles[0]" = "Spends";
 
 /* Class = "UISegmentedControl"; rdL-lP-5OT.segmentTitles[1] = "Incomes"; ObjectID = "rdL-lP-5OT"; */
-"rdL-lP-5OT.segmentTitles[1]" = "Доходы";
+"rdL-lP-5OT.segmentTitles[1]" = "Incomes";
 
 /* Class = "UIViewController"; title = "Выберите категорию"; ObjectID = "ubh-cO-avB"; */
 "ubh-cO-avB.title" = "Выберите категорию";

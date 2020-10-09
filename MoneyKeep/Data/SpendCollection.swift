@@ -43,6 +43,10 @@ class SpendCollection: Sequence{//тут будет полный список р
         return spends[at]
     }
     
+    public func clear(){
+        spends.removeAll()
+    }
+    
     public func SaveToCoredata() {
         ClearCoredata()
         let managedContext = AppDelegate.managedContext

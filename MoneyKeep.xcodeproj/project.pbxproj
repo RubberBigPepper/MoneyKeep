@@ -10,6 +10,8 @@
 		5005821D25024F040076927D /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5005821C25024F040076927D /* CategoryCollectionViewCell.swift */; };
 		5005821F25024F990076927D /* AddSpendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5005821E25024F990076927D /* AddSpendViewController.swift */; };
 		502272572508B14C00914E9A /* ColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502272562508B14C00914E9A /* ColorSet.swift */; };
+		5029EE75253089DE00503D0B /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5029EE74253089DE00503D0B /* Persistance.swift */; };
+		5029EE7825308C7100503D0B /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5029EE7725308C7100503D0B /* StringExtension.swift */; };
 		502BFA8A252C4A57003A6272 /* SpendData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502BFA89252C4A57003A6272 /* SpendData.swift */; };
 		50382C2124EE33CA0085272D /* SpendCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50382C2024EE33CA0085272D /* SpendCategory.swift */; };
 		50382C2324EE36600085272D /* SpendItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50382C2224EE36600085272D /* SpendItem.swift */; };
@@ -26,6 +28,7 @@
 		50500B1524FD401E00BE9132 /* ImageCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50500B1424FD401E00BE9132 /* ImageCollection.swift */; };
 		507BC8B125244ABA00C91358 /* SelectCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507BC8B025244ABA00C91358 /* SelectCategoryViewController.swift */; };
 		50A0B89824F91D4800DE5E23 /* CategoryCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0B89724F91D4800DE5E23 /* CategoryCollection.swift */; };
+		50D7247625306CF700402F5B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50D7247825306CF700402F5B /* Localizable.strings */; };
 		FBCD0EA8B0288554E62CD1D6 /* Pods_MoneyKeep.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BC49BB30AAE39B8DF13D603 /* Pods_MoneyKeep.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,8 +36,9 @@
 		0BC49BB30AAE39B8DF13D603 /* Pods_MoneyKeep.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoneyKeep.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5005821C25024F040076927D /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		5005821E25024F990076927D /* AddSpendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpendViewController.swift; sourceTree = "<group>"; };
-		5005822025026EDE0076927D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		502272562508B14C00914E9A /* ColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSet.swift; sourceTree = "<group>"; };
+		5029EE74253089DE00503D0B /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
+		5029EE7725308C7100503D0B /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		502BFA89252C4A57003A6272 /* SpendData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendData.swift; sourceTree = "<group>"; };
 		50382C2024EE33CA0085272D /* SpendCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendCategory.swift; sourceTree = "<group>"; };
 		50382C2224EE36600085272D /* SpendItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendItem.swift; sourceTree = "<group>"; };
@@ -53,6 +57,9 @@
 		50500B1424FD401E00BE9132 /* ImageCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollection.swift; sourceTree = "<group>"; };
 		507BC8B025244ABA00C91358 /* SelectCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryViewController.swift; sourceTree = "<group>"; };
 		50A0B89724F91D4800DE5E23 /* CategoryCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollection.swift; sourceTree = "<group>"; };
+		50D7247725306CF700402F5B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		50D7247A25306CFB00402F5B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		50D7247F2530778600402F5B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; usesTabs = 0; };
 		9A134715B8F7A2FECF1B7EDC /* Pods-MoneyKeep.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyKeep.release.xcconfig"; path = "Target Support Files/Pods-MoneyKeep/Pods-MoneyKeep.release.xcconfig"; sourceTree = "<group>"; };
 		F954CA37774A6EA437ED5290 /* Pods-MoneyKeep.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyKeep.debug.xcconfig"; path = "Target Support Files/Pods-MoneyKeep/Pods-MoneyKeep.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +119,8 @@
 				5005821C25024F040076927D /* CategoryCollectionViewCell.swift */,
 				5005821E25024F990076927D /* AddSpendViewController.swift */,
 				507BC8B025244ABA00C91358 /* SelectCategoryViewController.swift */,
+				50D7247825306CF700402F5B /* Localizable.strings */,
+				5029EE74253089DE00503D0B /* Persistance.swift */,
 			);
 			path = MoneyKeep;
 			sourceTree = "<group>";
@@ -122,6 +131,7 @@
 				5039B00C2523A33900875E24 /* DateExtension.swift */,
 				502272562508B14C00914E9A /* ColorSet.swift */,
 				50500B1424FD401E00BE9132 /* ImageCollection.swift */,
+				5029EE7725308C7100503D0B /* StringExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -209,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50418D8624EBD0FF003EDD6B /* LaunchScreen.storyboard in Resources */,
+				50D7247625306CF700402F5B /* Localizable.strings in Resources */,
 				50418D8324EBD0FF003EDD6B /* Assets.xcassets in Resources */,
 				50418D7E24EBD0FE003EDD6B /* Main.storyboard in Resources */,
 			);
@@ -269,6 +280,7 @@
 				50418D7724EBD0FD003EDD6B /* AppDelegate.swift in Sources */,
 				502272572508B14C00914E9A /* ColorSet.swift in Sources */,
 				50418D7924EBD0FD003EDD6B /* SceneDelegate.swift in Sources */,
+				5029EE75253089DE00503D0B /* Persistance.swift in Sources */,
 				50382C2124EE33CA0085272D /* SpendCategory.swift in Sources */,
 				5005821D25024F040076927D /* CategoryCollectionViewCell.swift in Sources */,
 				5005821F25024F990076927D /* AddSpendViewController.swift in Sources */,
@@ -276,6 +288,7 @@
 				503B1C22251B614200EBBF2B /* CalculatorView.swift in Sources */,
 				5039B00D2523A33900875E24 /* DateExtension.swift in Sources */,
 				507BC8B125244ABA00C91358 /* SelectCategoryViewController.swift in Sources */,
+				5029EE7825308C7100503D0B /* StringExtension.swift in Sources */,
 				50418D8124EBD0FE003EDD6B /* MoneyKeep.xcdatamodeld in Sources */,
 				502BFA8A252C4A57003A6272 /* SpendData.swift in Sources */,
 				50382C2524EE38E10085272D /* SpendCollection.swift in Sources */,
@@ -289,7 +302,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				50418D7D24EBD0FE003EDD6B /* Base */,
-				5005822025026EDE0076927D /* ru */,
+				50D7247F2530778600402F5B /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -300,6 +313,15 @@
 				50418D8524EBD0FF003EDD6B /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		50D7247825306CF700402F5B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				50D7247725306CF700402F5B /* en */,
+				50D7247A25306CFB00402F5B /* ru */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

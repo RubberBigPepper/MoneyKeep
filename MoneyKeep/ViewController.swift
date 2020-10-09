@@ -15,10 +15,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var spendBtn: UIButton!//кнопка расхода
     @IBOutlet weak var segmentType: UISegmentedControl!
     
+    @IBOutlet weak var demoOffBtn: UIButton!
     @IBOutlet weak var chartView: PieChartView!
-    
-    private let prevNavButton = UIButton(type: .custom)//кнопка предыдущего месяца
-    private let nextNavButton = UIButton(type: .custom)//кнопка следущего месяца
     
     private var firstMonthYear: Int = 0 //первый месяц даты расходов (год*12 + месяц)
     private var endMonthYear: Int = 0 // последний месяц даты расходов (год*12 + месяц)
@@ -26,18 +24,10 @@ class ViewController: UIViewController {
         didSet{
             if curMonthYear == 0 { return }
             updateChart()
-            if curMonthYear < endMonthYear {//покажем кнопку далее по месяцам
-                nextNavButton.isHidden=false
-                nextNavButton.setTitle(monthYear2DateStr(curMonthYear + 1), for: .normal)
-            } else {//скроем кнопку далее
-                nextNavButton.isHidden=true
-            }
-            if curMonthYear > firstMonthYear {//покажем кнопку предыдушего месяца
-                prevNavButton.isHidden = false
-                prevNavButton.setTitle(monthYear2DateStr(curMonthYear - 1), for: .normal)
-            } else { //скроем кнопку предыдущего месяца
-                prevNavButton.isHidden = true
-            }
+            self.navigationItem.rightBarButtonItem?.title = monthYear2DateStr(curMonthYear + 1, true)
+            self.navigationItem.leftBarButtonItem?.title = monthYear2DateStr(curMonthYear - 1, true)
+            self.navigationItem.rightBarButtonItem?.isEnabled = curMonthYear < endMonthYear
+            self.navigationItem.leftBarButtonItem?.isEnabled = curMonthYear > firstMonthYear
             self.navigationItem.title = monthYear2DateStr(curMonthYear)
         }
     }
@@ -48,15 +38,18 @@ class ViewController: UIViewController {
         prepareCircleBtn(spendBtn)
         addNavButtons()
         segmentType.selectedSegmentIndex = 0
-//        let players = ["Ozil", "Ramsey", "Laca", "Auba", "Xhaka", "Torreira"]
-//        let goals = [6, 8, 26, 30, 8, 10]
-//        customizeChart(dataPoints: players, values: goals.map{ Double($0) })
         NotificationCenter.default.addObserver(self,//Небольшой костыль-сохранение по сворачиванию
                                                selector: #selector(sceneWillResignActiveNotification(_:)),
                                                name: UIApplication.willResignActiveNotification,
                                                object: nil)
+        let demo = Persistance.shared.isDemoMode
+        if demo == nil {//первый запуск, покажем диалог
+            showDemoModeDlg()
+        }
+        else {
+            demoOffBtn.isHidden = !demo!
+        }
         updateFirstEndDateMonth()
-//        curMonthYear =  date2MonthYear(Date()) //текущий месяц/год
     }
 
     @objc func sceneWillResignActiveNotification(_ notification: NSNotification) {
@@ -72,10 +65,30 @@ class ViewController: UIViewController {
         updateChart()
     }
     
+    private func showDemoModeDlg(){//покажем диалог запуска демо режима
+        let alert = UIAlertController(title: String.localized("demo_mode"),
+                                      message: String.localized("demo_mode_prompt"), preferredStyle: .alert)
+
+        let yesAction = UIAlertAction(title: String.localized("yes") , style: .default) {
+            (action: UIAlertAction!) -> Void in
+            SpendData.Data.generateDemoData()
+            self.updateFirstEndDateMonth()
+            Persistance.shared.isDemoMode = true
+            self.demoOffBtn.isHidden = false
+        }
+               
+        let noAction = UIAlertAction(title: String.localized("no"), style: .default) {
+           (action: UIAlertAction!) -> Void in
+        }
+        alert.addAction(yesAction)
+        alert.addAction(noAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
     
     private func prepareCircleBtn(_ btn: UIButton){//делаем кнопки круглыми
         btn.layer.cornerRadius = max(btn.bounds.width, btn.bounds.height)*0.5
-        btn.layer.borderWidth = 3
+        btn.layer.borderWidth = 5
         btn.layer.borderColor = btn.currentTitleColor.cgColor
     }
 
@@ -100,10 +113,13 @@ class ViewController: UIViewController {
     }
     
     private func updateChart(){//обновление чарта за последний месяц
-        let date = Date()
-        let from = Date.from(date.getComponent(.year),date.getComponent(.month), 1)
-        let data = SpendData.Data.getSpends(from: from!, to: date, type: segmentType.selectedSegmentIndex == 0 ? .outcome: .income)
-        updateChart(data)
+//        let date = Date()
+        //let from = Date.from(date.getComponent(.year),date.getComponent(.month), 1)
+        if let from = Date.fromMonthYear(curMonthYear),
+           let to = Date.fromMonthYear(curMonthYear + 1){
+            let data = SpendData.Data.getSpends(from: from, to: to, type: segmentType.selectedSegmentIndex == 0 ? .outcome: .income)
+            updateChart(data)
+        }
     }
 
     private func updateChart(_ data: [Int: Float]) {//обновление данных чарта
@@ -131,26 +147,37 @@ class ViewController: UIViewController {
     private func updateFirstEndDateMonth(){//обновим даты начала и конца ведения расходов
         firstMonthYear = SpendData.Data.firstDate.toMonthYear()
         endMonthYear = SpendData.Data.endDate.toMonthYear()
-        if curMonthYear > endMonthYear { curMonthYear = endMonthYear }
-        if curMonthYear < firstMonthYear { curMonthYear = firstMonthYear }
+        var curMonth=Date().toMonthYear()
+        if curMonth > endMonthYear {
+            curMonth = endMonthYear
+        }
+        if curMonth < firstMonthYear {
+            curMonth = firstMonthYear
+        }
+        curMonthYear=curMonth
     }
     
-    private func monthYear2DateStr(_ monthYear: Int)-> String{//число даты в строку для кнопок
+    private func monthYear2DateStr(_ monthYear: Int, _ monthName: Bool = false)-> String?{//число даты в строку для кнопок
         if let date = Date.fromMonthYear(monthYear){
-            return date.toString("MM.yyyy")
+            if monthName {//нужно только месяц как текст
+                return date.toString("MMM")
+            }
+            else {
+                return date.toString("MM.yyyy")
+            }
         }
         else {
-            return "N/A"
+            return nil
         }
     }
     
     private func addNavButtons() {//добавляем кнопки на навбар
-        prevNavButton.addTarget(self, action: #selector(self.prevMonthAction(_:)), for: .touchUpInside)
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: prevNavButton)
+        let prevBtn=UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(self.prevMonthAction(_:)))
+        self.navigationItem.setLeftBarButton(prevBtn, animated: true)
         self.navigationItem.leftBarButtonItem?.isEnabled = true
-        
-        nextNavButton.addTarget(self, action: #selector(self.nextMonthAction(_:)), for: .touchUpInside)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: nextNavButton)
+
+        let nextBtn=UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(self.nextMonthAction(_:)))
+        self.navigationItem.setRightBarButton(nextBtn, animated: true)
         self.navigationItem.rightBarButtonItem?.isEnabled = true
     }
     
@@ -160,6 +187,14 @@ class ViewController: UIViewController {
     
     @IBAction func nextMonthAction(_ sender: UIButton) {//переходим на месяц вперед
         curMonthYear = curMonthYear + 1
+    }
+    
+    @IBAction func demoOffPressed(_ sender: Any) {
+        SpendData.Data.Spends.clear()
+        Persistance.shared.isDemoMode = false
+        updateFirstEndDateMonth()
+        updateChart()
+        demoOffBtn.isHidden = true
     }
 }
 

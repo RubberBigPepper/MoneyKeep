@@ -38,17 +38,6 @@ class  SpendData{//этот класс будет все данные о рас�
         Spends = SpendCollection(Categories)
     }
 
-    public func getSpends(from: Date, to: Date, what: SpendType)->[Int: Float]{//затраты за период. Сперва ID категории, потом затраты
-        var res: [Int:Float] = [:]
-        for n in 0..<Categories.count{
-            if let cat = Categories.getCategory(n) {
-                res[cat.ID] = 0
-            }
-        }
-
-        return res //пока заглушка
-    }
-
     public func saveDataToCore(){//сохранение данных в кордату
         Categories.SaveToCoredata()
         Spends.SaveToCoredata()
@@ -60,11 +49,25 @@ class  SpendData{//этот класс будет все данные о рас�
             res[cat.ID] = 0
         }
         for spend in Spends{
-            if spend.date<from || spend.category.type != type { continue }
-            if spend.date>to { break }//у нас отсортированная коллекция, потому пропускаем
+            if spend.date < from || spend.category.type != type { continue }
+            if spend.date >= to { break }//у нас отсортированная коллекция, потому пропускаем
             res[spend.category.ID]? += spend.amount
         }
         return res
     }
     
+    public func generateDemoData(){//генерация демо данных
+        Spends.clear()
+        let monthYear=Date().toMonthYear()
+        for month in monthYear-6...monthYear{//возьмем несколько месяцев от текущей даты
+            for cat in Categories {
+                let rnd = Int.random(in: 0..<10)//не все категории будут учавствовать
+                if rnd>6 { continue }
+                let amount = Float.random(in: 0.5..<10000.0)
+                if let date = Date.fromMonthYear(month, Int.random(in: 0..<29)) {
+                    Spends.addItem(SpendItem(category: cat, amount: amount, date: date, text: NSLocalizedString("auto_generated", comment: "")))
+                }
+            }
+        }
+    }
 }

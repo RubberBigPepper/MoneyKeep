@@ -56,29 +56,32 @@ class CategoryCollection: Sequence{
     public init(){
         ReadFromCoredata()
         if count == 0 {//ничего не прочитано, поэтому сгенерируем новые
-            addCategory(SpendCategory(imagePath: "beauty", name: "Гигиена", ID: nextID(), type: .outcome))
-            addCategory(SpendCategory(imagePath: "food", name: "Еда", ID: nextID(), type: .outcome))
-            addCategory(SpendCategory(imagePath: "house", name: "Жилье", ID: nextID(), type: .outcome))
-            addCategory(SpendCategory(imagePath: "medicine", name: "Здоровье", ID: nextID(), type: .outcome))
-            addCategory(SpendCategory(imagePath: "clothes", name: "Одежда", ID: nextID(), type: .outcome))
-            addCategory(SpendCategory(imagePath: "cafe", name: "Кафе", ID: nextID(), type: .outcome))
-            addCategory(SpendCategory(imagePath: "fuel_station", name: "Машина", ID: nextID(), type: .outcome))
-            addCategory(SpendCategory(imagePath: "hobby", name: "Хобби", ID: nextID(), type: .outcome))
-            addCategory(SpendCategory(imagePath: "gift", name: "Подарки", ID: nextID(), type: .outcome))
-            addCategory(SpendCategory(imagePath: "entertaiment", name: "Развлечения", ID: nextID(), type: .outcome))
-            addCategory(SpendCategory(imagePath: "service", name: "Связь", ID: nextID(), type: .outcome))
-            addCategory(SpendCategory(imagePath: "sport", name: "Спорт", ID: nextID(), type: .outcome))
-            addCategory(SpendCategory(imagePath: "bill", name: "Счета", ID: nextID(), type: .outcome))
-            addCategory(SpendCategory(imagePath: "car", name: "Такси", ID: nextID(), type: .outcome))
-            addCategory(SpendCategory(imagePath: "transport", name: "Транспорт", ID: nextID(), type: .outcome))
+            makeCategory("beauty", "beauty", .outcome)
+            makeCategory("food", "food", .outcome)
+            makeCategory("house", "house", .outcome)
+            makeCategory("medicine", "medicine", .outcome)
+            makeCategory("clothes", "clothes", .outcome)
+            makeCategory("fuel_station", "fuel_station", .outcome)
+            makeCategory("hobby", "hobby", .outcome)
+            makeCategory("gift", "gift", .outcome)
+            makeCategory("entertainment", "entertainment", .outcome)
+            makeCategory("service", "service", .outcome)
+            makeCategory("sport", "sport", .outcome)
+            makeCategory("bill", "bill", .outcome)
+            makeCategory("car", "car", .outcome)
+            makeCategory("transport", "transport", .outcome)
 
-            addCategory(SpendCategory(imagePath: "safe", name: "Депозит", ID: nextID(), type: .income))
-            addCategory(SpendCategory(imagePath: "money", name: "Зарплата", ID: nextID(), type: .income))
-            addCategory(SpendCategory(imagePath: "passive_income", name: "Дивиденды", ID: nextID(), type: .income))
-            addCategory(SpendCategory(imagePath: "tag", name: "Гонорар", ID: nextID(), type: .income))
-            addCategory(SpendCategory(imagePath: "miscellaneous", name: "Прочие доходы", ID: nextID(), type: .income))
+            makeCategory("safe", "safe", .income)
+            makeCategory("money", "money", .income)
+            makeCategory("passive_income", "passive_income", .income)
+            makeCategory("tag", "tag", .income)
+            makeCategory("miscellaneous", "miscellaneous", .income)
             SaveToCoredata()
         }
+    }
+    
+    private func makeCategory(_ imagePath: String, _ keyStr: String, _ type: SpendType){
+        addCategory(SpendCategory(imagePath: imagePath, name: String.localized(keyStr), ID: nextID(), type: type))
     }
 
     public func addCategory(_ category: SpendCategory){//добавление категории
