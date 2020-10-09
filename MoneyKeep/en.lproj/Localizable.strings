@@ -33,3 +33,4 @@
 "demo_mode_prompt" = "In demo mode, expenses and incomes will be generated for different categories for the last 6 months.";
 "yes" = "Yes";
 "no" = "No";
+"Total" = "Total:";

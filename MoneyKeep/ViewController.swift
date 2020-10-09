@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var spendBtn: UIButton!//кнопка расхода
     @IBOutlet weak var segmentType: UISegmentedControl!
     
+    @IBOutlet weak var labelSum: UILabel!//сумма всех трат или доходов за период
     @IBOutlet weak var demoOffBtn: UIButton!
     @IBOutlet weak var chartView: PieChartView!
     
@@ -125,12 +126,16 @@ class ViewController: UIViewController {
     private func updateChart(_ data: [Int: Float]) {//обновление данных чарта
       // 1. Set ChartDataEntry
         var dataEntries: [ChartDataEntry] = []
+        var sum: Float = 0.0
         for spendData in data {
             let cat = SpendData.Data.Categories.findCategory(spendData.key)
             if cat == nil || spendData.value == 0 { continue }
+            sum += spendData.value
             let dataEntry = PieChartDataEntry(value: Double(spendData.value), label: cat?.name, data: spendData as AnyObject)
             dataEntries.append(dataEntry)
         }
+        labelSum.textColor = segmentType.selectedSegmentIndex == 0 ? UIColor.red: UIColor.green
+        labelSum.text = String.localized("Total") + "\n" + String(format: "%.2f", sum)
       // 2. Set ChartDataSet
         let pieChartDataSet = PieChartDataSet(entries: dataEntries, label: nil)
         pieChartDataSet.colors = ColorSet.colors

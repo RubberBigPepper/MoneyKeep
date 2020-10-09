@@ -63,7 +63,7 @@ class  SpendData{//этот класс будет все данные о рас�
             for cat in Categories {
                 let rnd = Int.random(in: 0..<10)//не все категории будут учавствовать
                 if rnd>6 { continue }
-                let amount = Float.random(in: 0.5..<10000.0)
+                let amount = Float(Int.random(in: 5..<1000000)) * 0.01
                 if let date = Date.fromMonthYear(month, Int.random(in: 0..<29)) {
                     Spends.addItem(SpendItem(category: cat, amount: amount, date: date, text: NSLocalizedString("auto_generated", comment: "")))
                 }

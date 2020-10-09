@@ -27,7 +27,6 @@
                                             <constraint firstAttribute="width" constant="80" id="1UZ-w0-hdq"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <inset key="titleEdgeInsets" minX="0.0" minY="-11" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="spend">
                                             <color key="titleColor" systemColor="systemRedColor"/>
                                         </state>
@@ -47,7 +46,6 @@
                                             <constraint firstAttribute="width" constant="80" id="d51-Sl-fTA"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <inset key="titleEdgeInsets" minX="0.0" minY="-9" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="income">
                                             <color key="titleColor" systemColor="systemGreenColor"/>
                                         </state>
@@ -62,7 +60,20 @@
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qls-Al-5N0" customClass="PieChartView" customModule="Charts">
                                 <rect key="frame" x="20" y="165" width="374" height="609"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="2" minimumFontSize="7" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ppk-Py-c2W">
+                                        <rect key="frame" x="140.5" y="270" width="93.5" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Ppk-Py-c2W" firstAttribute="centerX" secondItem="Qls-Al-5N0" secondAttribute="centerX" id="IL1-pK-2f3"/>
+                                    <constraint firstItem="Ppk-Py-c2W" firstAttribute="centerY" secondItem="Qls-Al-5N0" secondAttribute="centerY" constant="-25" id="a8N-Fo-hoj"/>
+                                    <constraint firstItem="Ppk-Py-c2W" firstAttribute="width" secondItem="Qls-Al-5N0" secondAttribute="width" multiplier="0.25" id="eeb-rv-DRA"/>
+                                </constraints>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rdL-lP-5OT">
                                 <rect key="frame" x="20" y="88" width="374" height="32"/>
@@ -105,6 +116,7 @@
                         <outlet property="chartView" destination="Qls-Al-5N0" id="HAJ-6d-Zpq"/>
                         <outlet property="demoOffBtn" destination="6LW-o6-FVJ" id="3F2-Nu-ebg"/>
                         <outlet property="incomeBtn" destination="6ft-ML-R1S" id="nJO-St-3Qi"/>
+                        <outlet property="labelSum" destination="Ppk-Py-c2W" id="XaE-PL-AcJ"/>
                         <outlet property="segmentType" destination="rdL-lP-5OT" id="des-Le-29h"/>
                         <outlet property="spendBtn" destination="pgY-w5-LhR" id="TOH-1Y-kCX"/>
                         <segue destination="80y-sc-mBS" kind="show" identifier="AddSpendIncome" id="RiL-rT-H8K"/>
