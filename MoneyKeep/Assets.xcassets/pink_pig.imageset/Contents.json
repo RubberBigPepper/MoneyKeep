@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "pink-coin-box-piggy-bank-with-falling-gold-coins-the-concept-of-saving-or-save-money-or-open-a-bank-deposit-illustration-on-white-background-web-site-page-and-mobile-app_257455-868.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
