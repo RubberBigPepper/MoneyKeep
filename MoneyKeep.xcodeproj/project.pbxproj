@@ -28,14 +28,6 @@
 		50500B1524FD401E00BE9132 /* ImageCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50500B1424FD401E00BE9132 /* ImageCollection.swift */; };
 		507BC8B125244ABA00C91358 /* SelectCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507BC8B025244ABA00C91358 /* SelectCategoryViewController.swift */; };
 		50A0B89824F91D4800DE5E23 /* CategoryCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0B89724F91D4800DE5E23 /* CategoryCollection.swift */; };
-		50BFF5282530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.40.33.png in Resources */ = {isa = PBXBuildFile; fileRef = 50BFF5202530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.40.33.png */; };
-		50BFF5292530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.39.55.png in Resources */ = {isa = PBXBuildFile; fileRef = 50BFF5212530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.39.55.png */; };
-		50BFF52A2530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.40.21.png in Resources */ = {isa = PBXBuildFile; fileRef = 50BFF5222530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.40.21.png */; };
-		50BFF52B2530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.39.34.png in Resources */ = {isa = PBXBuildFile; fileRef = 50BFF5232530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.39.34.png */; };
-		50BFF52C2530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.41.12.png in Resources */ = {isa = PBXBuildFile; fileRef = 50BFF5242530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.41.12.png */; };
-		50BFF52D2530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.40.55.png in Resources */ = {isa = PBXBuildFile; fileRef = 50BFF5252530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.40.55.png */; };
-		50BFF52E2530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.41.33.png in Resources */ = {isa = PBXBuildFile; fileRef = 50BFF5262530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.41.33.png */; };
-		50BFF52F2530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.40.05.png in Resources */ = {isa = PBXBuildFile; fileRef = 50BFF5272530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.40.05.png */; };
 		50D7247625306CF700402F5B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50D7247825306CF700402F5B /* Localizable.strings */; };
 		FBCD0EA8B0288554E62CD1D6 /* Pods_MoneyKeep.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BC49BB30AAE39B8DF13D603 /* Pods_MoneyKeep.framework */; };
 /* End PBXBuildFile section */
@@ -65,14 +57,6 @@
 		50500B1424FD401E00BE9132 /* ImageCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollection.swift; sourceTree = "<group>"; };
 		507BC8B025244ABA00C91358 /* SelectCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryViewController.swift; sourceTree = "<group>"; };
 		50A0B89724F91D4800DE5E23 /* CategoryCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollection.swift; sourceTree = "<group>"; };
-		50BFF5202530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.40.33.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Снимок экрана 2020-10-09 в 23.40.33.png"; sourceTree = "<group>"; };
-		50BFF5212530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.39.55.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Снимок экрана 2020-10-09 в 23.39.55.png"; sourceTree = "<group>"; };
-		50BFF5222530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.40.21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Снимок экрана 2020-10-09 в 23.40.21.png"; sourceTree = "<group>"; };
-		50BFF5232530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.39.34.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Снимок экрана 2020-10-09 в 23.39.34.png"; sourceTree = "<group>"; };
-		50BFF5242530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.41.12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Снимок экрана 2020-10-09 в 23.41.12.png"; sourceTree = "<group>"; };
-		50BFF5252530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.40.55.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Снимок экрана 2020-10-09 в 23.40.55.png"; sourceTree = "<group>"; };
-		50BFF5262530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.41.33.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Снимок экрана 2020-10-09 в 23.41.33.png"; sourceTree = "<group>"; };
-		50BFF5272530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.40.05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Снимок экрана 2020-10-09 в 23.40.05.png"; sourceTree = "<group>"; };
 		50D7247725306CF700402F5B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		50D7247A25306CFB00402F5B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		50D7247F2530778600402F5B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; usesTabs = 0; wrapsLines = 1; };
@@ -168,14 +152,6 @@
 		50BFF51F2530E70300E4A9C5 /* screenshots */ = {
 			isa = PBXGroup;
 			children = (
-				50BFF5202530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.40.33.png */,
-				50BFF5212530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.39.55.png */,
-				50BFF5222530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.40.21.png */,
-				50BFF5232530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.39.34.png */,
-				50BFF5242530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.41.12.png */,
-				50BFF5252530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.40.55.png */,
-				50BFF5262530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.41.33.png */,
-				50BFF5272530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.40.05.png */,
 			);
 			name = screenshots;
 			path = MoneyKeep/screenshots;
@@ -251,18 +227,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50BFF52F2530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.40.05.png in Resources */,
 				50418D8624EBD0FF003EDD6B /* LaunchScreen.storyboard in Resources */,
 				50D7247625306CF700402F5B /* Localizable.strings in Resources */,
 				50418D8324EBD0FF003EDD6B /* Assets.xcassets in Resources */,
-				50BFF52E2530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.41.33.png in Resources */,
-				50BFF5282530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.40.33.png in Resources */,
 				50418D7E24EBD0FE003EDD6B /* Main.storyboard in Resources */,
-				50BFF5292530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.39.55.png in Resources */,
-				50BFF52C2530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.41.12.png in Resources */,
-				50BFF52D2530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.40.55.png in Resources */,
-				50BFF52B2530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.39.34.png in Resources */,
-				50BFF52A2530E70300E4A9C5 /* Снимок экрана 2020-10-09 в 23.40.21.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
